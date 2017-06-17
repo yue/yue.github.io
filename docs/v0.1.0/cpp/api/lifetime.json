@@ -1,0 +1,92 @@
+{
+  "name": "Lifetime",
+  "component": "gui",
+  "header": "nativeui/lifetime.h",
+  "type": "class",
+  "namespace": "nu",
+  "description": "Event loop and application lifetime.",
+  "detail": "This class initializes a GUI event loop, and provides APIs to manage\napplication's lifetime. Depending on the runtime you use, Yue may or may not\nprovide this API.\n\nIf you are using Yue in an environment that does not have its own event\nloop, you should create `Lifetime` at any time before entering event loop.\n\n```cpp\nnu::State state;\nnu::Lifetime lifetime;\nlifetime.Run();\n```\n",
+  "constructor": [
+    {
+      "signature": "Lifetime()",
+      "lang": [
+        "cpp"
+      ],
+      "description": "Create a `Lifetime` instance, you can only have one instance per thread.\n"
+    }
+  ],
+  "methods": [
+    {
+      "signature": {
+        "name": "Run",
+        "parameters": [],
+        "str": "void Run()"
+      },
+      "description": "Enter event loop.",
+      "id": "run"
+    },
+    {
+      "signature": {
+        "name": "Quit",
+        "parameters": [],
+        "str": "void Quit()"
+      },
+      "description": "Quit event loop.",
+      "id": "quit"
+    },
+    {
+      "signature": {
+        "name": "PostTask",
+        "parameters": [
+          {
+            "type": {
+              "name": "const base::Callback<void()>&"
+            },
+            "name": "task"
+          }
+        ],
+        "str": "void PostTask(const base::Callback<void()>& task)"
+      },
+      "description": "Post a `task` to event loop.",
+      "id": "posttask-task"
+    },
+    {
+      "signature": {
+        "name": "PostDelayedTask",
+        "parameters": [
+          {
+            "type": {
+              "name": "int"
+            },
+            "name": "ms",
+            "description": "The number of milliseconds to wait"
+          },
+          {
+            "type": {
+              "name": "const base::Callback<void()>&"
+            },
+            "name": "task"
+          }
+        ],
+        "str": "void PostDelayedTask(int ms, const base::Callback<void()>& task);"
+      },
+      "description": "Post a `task` to event loop and execute it after `ms`.",
+      "id": "postdelayedtask-ms-task"
+    }
+  ],
+  "events": [
+    {
+      "callback": {
+        "name": "on_ready",
+        "parameters": [],
+        "str": "void on_ready()"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Emitted when received `applicationDidFinishLaunching` notification.\n",
+      "id": "onready"
+    }
+  ],
+  "id": "lifetime"
+}

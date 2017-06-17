@@ -1,0 +1,45 @@
+{
+  "name": "Event",
+  "header": "nativeui/events/event.h",
+  "type": "struct",
+  "namespace": "nu",
+  "description": "Generic input event type.",
+  "properties": [
+    {
+      "description": "The type of the event.",
+      "id": "type",
+      "type": {
+        "name": "EventType",
+        "id": "eventtype"
+      },
+      "name": "type"
+    },
+    {
+      "description": "A bit array  of keyboard modifiers of the event.",
+      "detail": "\nAvailable modifiers can be found in\n[KeyboardModifier](keyboardmodifier.html).\n",
+      "id": "modifiers",
+      "type": {
+        "name": "int"
+      },
+      "name": "modifiers"
+    },
+    {
+      "description": "Time when event was created, starts from when machine was booted.\n",
+      "id": "timestamp",
+      "type": {
+        "name": "uint32_t"
+      },
+      "name": "timestamp"
+    },
+    {
+      "description": "The underlying native event.",
+      "id": "nativeevent",
+      "type": {
+        "name": "NativeEvent",
+        "id": "nativeevent"
+      },
+      "name": "native_event"
+    }
+  ],
+  "id": "event"
+}
