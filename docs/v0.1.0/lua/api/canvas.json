@@ -39,7 +39,7 @@
           "name": "Canvas",
           "id": "canvas"
         },
-        "name": "create",
+        "name": "createformainscreen",
         "parameters": [
           {
             "type": {
@@ -49,10 +49,10 @@
             "name": "size"
           }
         ],
-        "str": "create(size)"
+        "str": "createformainscreen(size)"
       },
       "description": "Create a new canvas with `size` using default scale factor.\n\nThis is strongly discouraged for using, since it does not work well with\nmulti-monitor setup. Only use it when you does not care about per-monitor\nDPI.\n",
-      "id": "create-size"
+      "id": "createformainscreen-size"
     }
   ],
   "methods": [
