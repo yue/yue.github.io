@@ -132,8 +132,7 @@
               "name": "Scroll::Policy",
               "id": "scroll_policy"
             }
-          ],
-          "id": "std_tuple"
+          ]
         },
         "name": "GetScrollbarPolicy",
         "parameters": [],

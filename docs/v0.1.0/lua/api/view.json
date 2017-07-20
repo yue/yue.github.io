@@ -276,7 +276,7 @@
         "str": "setstyle(styles)"
       },
       "description": "Change the styles of the view.",
-      "detail": "Available style properties can be found at\n[Flex Layout](../guide/flex-layout.html).\n",
+      "detail": "Available style properties can be found at\n[Layout System](../guides/layout_system.html).\n",
       "id": "setstyle-styles"
     },
     {

@@ -15,7 +15,7 @@ shorthand of calling <code>connect</code>.</p>
 <h3 id="preventing-the-default-behavior">Preventing the default behavior</h3>
 <p>Certain events have default behaviors that can be prevented.</p>
 <p>Returning <code>true</code> means preventing the default behavior, and other slots of the
-events will not be executed. While returning nothing or <code>false</code> means the slot
+event will not be executed. While returning nothing or <code>false</code> means the slot
 is only observing the event.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">const</span> {Container} = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gui'</span>)
 <span class="hljs-keyword">let</span> view = Container.create()
@@ -28,4 +28,6 @@ view.onMouseDown.connect(<span class="hljs-function">(<span class="hljs-params">
 <span class="hljs-keyword">let</span> <span class="hljs-built_in">window</span> = Window.create({})
 <span class="hljs-built_in">window</span>.shouldClose = <span class="hljs-function">(<span class="hljs-params">self</span>) =&gt;</span> <span class="hljs-literal">false</span>
 </code></pre>
+<p>The delegates are usually used over events when the library is requesting data
+dynamically.</p>
 </div><div class="markdown-body" id="sidebar"></div></div><div id="footer"><p>Content of this page is in public domain.</p></div></body></html>

@@ -299,7 +299,7 @@
         "str": "void SetStyle(Args... styles)"
       },
       "description": "Change the styles of the view.",
-      "detail": "Available style properties can be found at\n[Flex Layout](../guide/flex-layout.html).\n\n```cpp\nview->SetStyle(\"flex\", 1, \"flex-direction\", \"row\");\n```\n",
+      "detail": "Available style properties can be found at\n[Layout System](../guides/layout_system.html).\n\n```cpp\nview->SetStyle(\"flex\", 1, \"flex-direction\", \"row\");\n```\n",
       "id": "setstyle-styles"
     },
     {

@@ -14,12 +14,12 @@
         "parameters": [
           {
             "type": {
-              "name": "const base::Callback<Sig>&"
+              "name": "const std::function<Sig>&"
             },
             "name": "slot"
           }
         ],
-        "str": "int Connect(const base::Callback<Sig>& slot)"
+        "str": "int Connect(const std::function<Sig>& slot)"
       },
       "description": "Connect `slot` to the signal, and return an ID that can be used to\ndisconnect it.\n",
       "id": "connect-slot"
@@ -97,6 +97,6 @@
       "id": "emit-args"
     }
   ],
-  "detail": "\nThe template class `Signal<Sig>` implements the signal/slot pattern, which\nis used as event type.\n\nIt can be used to register a list of callbacks, and then dispatch the event\nto all the callbacks.\n\n```cpp\n#include \"base/bind.h\"\n#include \"base/logging.h\"\n#include \"nativeui/nativeui.h\"\n\nvoid OnEvent(const std::string& arg) {\n  LOG(ERROR) << \"OnEvent: \" << arg;\n}\n\nvoid Main() {\n  nu::Signal<void(const std::string&)> event;\n  event.Connect(base::Bind(&OnEvent));\n\n  event.Emit(\"Emitted\");\n}\n```\n",
+  "detail": "\nThe template class `Signal<Sig>` implements the signal/slot pattern, which\nis used as event type.\n\nIt can be used to register a list of callbacks, and then dispatch the event\nto all the callbacks.\n\n```cpp\n#include \"base/logging.h\"\n#include \"nativeui/nativeui.h\"\n\nvoid Main() {\n  nu::Signal<void(const std::string&)> event;\n  event.Connect([](const std::string&) {\n    LOG(ERROR) << \"OnEvent: \" << arg;\n  });\n\n  event.Emit(\"Emitted\");\n}\n```\n",
   "id": "signal"
 }

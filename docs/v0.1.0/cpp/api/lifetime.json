@@ -40,12 +40,12 @@
         "parameters": [
           {
             "type": {
-              "name": "const base::Callback<void()>&"
+              "name": "const std::function<void()>&"
             },
             "name": "task"
           }
         ],
-        "str": "void PostTask(const base::Callback<void()>& task)"
+        "str": "void PostTask(const std::function<void()>& task)"
       },
       "description": "Post a `task` to event loop.",
       "id": "posttask-task"
@@ -63,12 +63,12 @@
           },
           {
             "type": {
-              "name": "const base::Callback<void()>&"
+              "name": "const std::function<void()>&"
             },
             "name": "task"
           }
         ],
-        "str": "void PostDelayedTask(int ms, const base::Callback<void()>& task);"
+        "str": "void PostDelayedTask(int ms, const std::function<void()>& task);"
       },
       "description": "Post a `task` to event loop and execute it after `ms`.",
       "id": "postdelayedtask-ms-task"
