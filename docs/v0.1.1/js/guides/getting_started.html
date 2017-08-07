@@ -36,8 +36,7 @@ win.onClose = <span class="hljs-function"><span class="hljs-params">()</span> =&
 win.setContentView(gui.Label.create(<span class="hljs-string">'Content View'</span>))
 win.setContentSize({<span class="hljs-attr">width</span>: <span class="hljs-number">400</span>, <span class="hljs-attr">height</span>: <span class="hljs-number">400</span>})
 win.center()
-
-gui.lifetime.onReady = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> win.activate()
+win.activate()
 
 gui.lifetime.run()
 process.exit(<span class="hljs-number">0</span>)
@@ -51,7 +50,7 @@ without worrying about event loop.</p>
 <span class="hljs-keyword">const</span> gui = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gui'</span>)
 
 <span class="hljs-keyword">const</span> win = gui.Window.create({})
-win.onClose = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> gui.lifetime.quit()
+win.onClose = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> electron.app.quit()
 win.setContentView(gui.Label.create(<span class="hljs-string">'Content View'</span>))
 win.setContentSize({<span class="hljs-attr">width</span>: <span class="hljs-number">400</span>, <span class="hljs-attr">height</span>: <span class="hljs-number">400</span>})
 win.center()
