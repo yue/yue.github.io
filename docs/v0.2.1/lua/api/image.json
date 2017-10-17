@@ -1,0 +1,59 @@
+{
+  "name": "Image",
+  "component": "gui",
+  "header": "nativeui/gfx/image.h",
+  "type": "Class",
+  "namespace": "nu",
+  "description": "Native image.",
+  "class_methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "Image",
+          "id": "image"
+        },
+        "name": "createfrompath",
+        "parameters": [
+          {
+            "type": {
+              "name": "string"
+            },
+            "name": "path"
+          }
+        ],
+        "str": "createfrompath(path)"
+      },
+      "description": "Create an image by reading from `path`.",
+      "id": "createfrompath-path"
+    }
+  ],
+  "methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "SizeF",
+          "id": "sizef"
+        },
+        "name": "getsize",
+        "parameters": [],
+        "str": "getsize()"
+      },
+      "description": "Return image's size in DIP.",
+      "id": "getsize"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "number"
+        },
+        "name": "getscalefactor",
+        "parameters": [],
+        "str": "getscalefactor()"
+      },
+      "description": "Return image's scale factor.",
+      "id": "getscalefactor"
+    }
+  ],
+  "module": "yue.gui",
+  "id": "image"
+}
