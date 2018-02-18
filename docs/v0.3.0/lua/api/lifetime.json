@@ -1,0 +1,34 @@
+{
+  "name": "Lifetime",
+  "component": "gui",
+  "header": "nativeui/lifetime.h",
+  "type": "Class",
+  "namespace": "nu",
+  "description": "Application lifetime.",
+  "detail": "This class does system GUI toolkit intializations, and provides APIs around\nnative GUI toolkit's application lifetime APIs. You should not use this API\nwhen integrating Yue into existing GUI apps.\n\nWhen using this class, you must create `Lifetime` before creating `State`.\n",
+  "constructor": [
+    {
+      "signature": "Lifetime()",
+      "lang": [
+        "cpp"
+      ],
+      "description": "Create a `Lifetime` instance, you can only have one instance per thread.\n"
+    }
+  ],
+  "events": [
+    {
+      "callback": {
+        "name": "onready",
+        "parameters": [],
+        "str": "onready()"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Emitted when received `applicationDidFinishLaunching` notification.\n",
+      "id": "onready"
+    }
+  ],
+  "module": "yue.gui",
+  "id": "lifetime"
+}
