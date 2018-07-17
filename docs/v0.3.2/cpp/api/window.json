@@ -666,7 +666,7 @@
       "platform": [
         "macOS"
       ],
-      "description": "Set whether the title is visible, when title was hidden the toolber would\nbe moved into the area previously occupied by the title.\n",
+      "description": "Set whether the title is visible, when title was hidden the toolbar would\nbe moved into the area previously occupied by the title.\n",
       "id": "settitlevisible-visible"
     },
     {
