@@ -1,0 +1,169 @@
+{
+  "name": "Slider",
+  "component": "gui",
+  "header": "nativeui/slider.h",
+  "type": "Class",
+  "namespace": "nu",
+  "inherit": {
+    "name": "View",
+    "id": "view"
+  },
+  "description": "A slider bar for selecting numerical value.",
+  "detail": "The default range is between `0` and `100`.",
+  "class_methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "Slider",
+          "id": "slider"
+        },
+        "name": "create",
+        "parameters": [],
+        "str": "create()"
+      },
+      "description": "Create a new `Slider` view.",
+      "id": "create"
+    }
+  ],
+  "methods": [
+    {
+      "signature": {
+        "name": "setvalue",
+        "parameters": [
+          {
+            "type": {
+              "name": "number"
+            },
+            "name": "value"
+          }
+        ],
+        "str": "setvalue(value)"
+      },
+      "description": "Set the value.",
+      "id": "setvalue-value"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "number"
+        },
+        "name": "getvalue",
+        "parameters": [],
+        "str": "getvalue()"
+      },
+      "description": "Return the value.",
+      "id": "getvalue"
+    },
+    {
+      "signature": {
+        "name": "setstep",
+        "parameters": [
+          {
+            "type": {
+              "name": "number"
+            },
+            "name": "step"
+          }
+        ],
+        "str": "setstep(step)"
+      },
+      "description": "Set the step value of the slider.",
+      "id": "setstep-step"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "number"
+        },
+        "name": "getvalue",
+        "parameters": [],
+        "str": "getvalue()"
+      },
+      "description": "Return the step value of the slider.",
+      "id": "getvalue"
+    },
+    {
+      "signature": {
+        "name": "setrange",
+        "parameters": [
+          {
+            "type": {
+              "name": "number"
+            },
+            "name": "min"
+          },
+          {
+            "type": {
+              "name": "number"
+            },
+            "name": "max"
+          }
+        ],
+        "str": "setrange(min, max)"
+      },
+      "description": "Set the range of the slider.",
+      "id": "setrange-min-max"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "std::tuple",
+          "template": "std::tuple",
+          "args": [
+            {
+              "name": "number"
+            },
+            {
+              "name": "number"
+            }
+          ],
+          "id": "std_tuple"
+        },
+        "name": "getrange",
+        "parameters": [],
+        "str": "getrange()"
+      },
+      "description": "Return the range of the slider.",
+      "id": "getrange"
+    }
+  ],
+  "events": [
+    {
+      "callback": {
+        "name": "onvaluechange",
+        "parameters": [
+          {
+            "type": {
+              "name": "Slider",
+              "id": "slider"
+            },
+            "name": "self"
+          }
+        ],
+        "str": "onvaluechange(self)"
+      },
+      "description": "Emitted when user is changing the slider.",
+      "id": "onvaluechange-self"
+    },
+    {
+      "callback": {
+        "name": "onslidingcomplete",
+        "parameters": [
+          {
+            "type": {
+              "name": "Slider",
+              "id": "slider"
+            },
+            "name": "self"
+          }
+        ],
+        "str": "onslidingcomplete(self)"
+      },
+      "description": "Emitted when user releases the slider.",
+      "detail": "Note that this event only emits when user was dragging the slider with\nmouse or trackpad, it does not emit when user was moving the slider with\nkeyboard.\n",
+      "id": "onslidingcomplete-self"
+    }
+  ],
+  "module": "yue.gui",
+  "id": "slider"
+}

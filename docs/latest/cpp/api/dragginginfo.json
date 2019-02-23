@@ -1,0 +1,67 @@
+{
+  "name": "DraggingInfo",
+  "header": "nativeui/dragging_info.h",
+  "type": "class",
+  "namespace": "nu",
+  "description": "Information about a dragging session.",
+  "detail": "This class can not be created by user, its instance can only be received in\nthe drag and drop events.\n",
+  "methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "bool"
+        },
+        "name": "IsDataAvailable",
+        "parameters": [
+          {
+            "type": {
+              "name": "Clipboard::Data::Type",
+              "id": "clipboard_data_type"
+            },
+            "name": "type"
+          }
+        ],
+        "str": "bool IsDataAvailable(Clipboard::Data::Type type) const"
+      },
+      "description": "Return whether the data of `type` is available.",
+      "detail": "On Linux the dragged data is only available in the `handle_drop` delegate.\n",
+      "id": "isdataavailable-type"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Clipboard::Data",
+          "id": "clipboard_data"
+        },
+        "name": "GetData",
+        "parameters": [
+          {
+            "type": {
+              "name": "Clipboard::Data::Type",
+              "id": "clipboard_data_type"
+            },
+            "name": "type"
+          }
+        ],
+        "str": "Clipboard::Data GetData(Clipboard::Data::Type type) const"
+      },
+      "description": "Get the data of `type` from clipboard.",
+      "detail": "On Linux the dragged data is only available in the `handle_drop` delegate.\n\nYou should always check the type of returned data before using it.\n",
+      "id": "getdata-type"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "int"
+        },
+        "name": "GetDragOperations",
+        "parameters": [],
+        "str": "int GetDragOperations() const"
+      },
+      "description": "Return the drag operation supported by drag source.",
+      "detail": "Most drag sources support multiple types of operations, you should always\ncheck whether an operation is supported by using bitwise AND operator.\n",
+      "id": "getdragoperations"
+    }
+  ],
+  "id": "dragginginfo"
+}
