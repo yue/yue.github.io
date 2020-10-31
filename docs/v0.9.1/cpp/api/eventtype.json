@@ -1,0 +1,34 @@
+{
+  "name": "EventType",
+  "header": "nativeui/events/event.h",
+  "type": "enum class",
+  "namespace": "nu",
+  "description": "Represent possible event types.",
+  "enums": [
+    {
+      "name": "EventType::Unknown"
+    },
+    {
+      "name": "EventType::MouseDown"
+    },
+    {
+      "name": "EventType::MouseUp"
+    },
+    {
+      "name": "EventType::MouseMove"
+    },
+    {
+      "name": "EventType::MouseEnter"
+    },
+    {
+      "name": "EventType::MouseLeave"
+    },
+    {
+      "name": "EventType::KeyDown"
+    },
+    {
+      "name": "EventType::KeyUp"
+    }
+  ],
+  "id": "eventtype"
+}
