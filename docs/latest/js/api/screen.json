@@ -1,0 +1,151 @@
+{
+  "name": "Screen",
+  "component": "gui",
+  "header": "nativeui/screen.h",
+  "type": "Object",
+  "singleton": true,
+  "namespace": "nu",
+  "description": "Receive information about system’s monitor or screen.",
+  "methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "Display",
+          "id": "display"
+        },
+        "name": "getPrimaryDisplay",
+        "parameters": [],
+        "str": "getPrimaryDisplay()"
+      },
+      "description": "Return the primary display.",
+      "id": "getprimarydisplay"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Array",
+          "elementType": {
+            "name": "Display",
+            "id": "display"
+          }
+        },
+        "name": "getAllDisplays",
+        "parameters": [],
+        "str": "getAllDisplays()"
+      },
+      "description": "Return the list of displays that are currently available.",
+      "id": "getalldisplays"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Display",
+          "id": "display"
+        },
+        "name": "getDisplayNearestWindow",
+        "parameters": [
+          {
+            "type": {
+              "name": "Window",
+              "id": "window"
+            },
+            "name": "window"
+          }
+        ],
+        "str": "getDisplayNearestWindow(window)"
+      },
+      "description": "Return the display nearest the specified `window`.",
+      "id": "getdisplaynearestwindow-window"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Display",
+          "id": "display"
+        },
+        "name": "getDisplayNearestPoint",
+        "parameters": [
+          {
+            "type": {
+              "name": "PointF",
+              "id": "pointf"
+            },
+            "name": "point"
+          }
+        ],
+        "str": "getDisplayNearestPoint(point)"
+      },
+      "description": "Return the display nearest the specified DIP `point`.",
+      "id": "getdisplaynearestpoint-point"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "PointF",
+          "id": "pointf"
+        },
+        "name": "getCursorScreenPoint",
+        "parameters": [],
+        "str": "getCursorScreenPoint()"
+      },
+      "description": "Return the current absolute position of the mouse pointer.",
+      "id": "getcursorscreenpoint"
+    }
+  ],
+  "events": [
+    {
+      "callback": {
+        "name": "onAddDisplay",
+        "parameters": [
+          {
+            "type": {
+              "name": "Display",
+              "id": "display"
+            },
+            "name": "display"
+          }
+        ],
+        "str": "onAddDisplay(display)"
+      },
+      "description": "Emitted when a new `display` is available.",
+      "id": "onadddisplay-display"
+    },
+    {
+      "callback": {
+        "name": "onRemoveDisplay",
+        "parameters": [
+          {
+            "type": {
+              "name": "Display",
+              "id": "display"
+            },
+            "name": "display"
+          }
+        ],
+        "str": "onRemoveDisplay(display)"
+      },
+      "description": "Emitted when the `display` has been removed.",
+      "id": "onremovedisplay-display"
+    },
+    {
+      "callback": {
+        "name": "onUpdateDisplay",
+        "parameters": [
+          {
+            "type": {
+              "name": "Display",
+              "id": "display"
+            },
+            "name": "display"
+          }
+        ],
+        "str": "onUpdateDisplay(display)"
+      },
+      "description": "Emitted when there are changes happened to `display`.",
+      "id": "onupdatedisplay-display"
+    }
+  ],
+  "module": "gui",
+  "detail": "\nThis class can not be created by user, you can only receive its global\ninstance from the `screen` property of the module:\n\n```js\ngui.screen.getPrimaryDisplay()\n```\n",
+  "id": "screen"
+}

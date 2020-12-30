@@ -1,0 +1,19 @@
+{
+  "name": "Button::Type",
+  "header": "nativeui/button.h",
+  "type": "enum class",
+  "namespace": "nu",
+  "description": "Represent possible `Button` types.",
+  "enums": [
+    {
+      "name": "Button::Type::Normal"
+    },
+    {
+      "name": "Button::Type::Checkbox"
+    },
+    {
+      "name": "Button::Type::Radio"
+    }
+  ],
+  "id": "button_type"
+}
