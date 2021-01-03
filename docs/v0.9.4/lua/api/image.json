@@ -1,0 +1,99 @@
+{
+  "name": "Image",
+  "component": "gui",
+  "header": "nativeui/gfx/image.h",
+  "type": "Class",
+  "namespace": "nu",
+  "description": "Native image.",
+  "detail": "## High DPI Image\n\nBy appending `@{scaleFactor}x` to the image's base filename, you can mark\nthe image as a high DPI image. For example an image file with filename of\n`icon@2x.png` will have scale factor of 2.\n\n## Template Image\n\nOn macOS you can mark an image as template image by putting `Template` to\nits base filename, for example `iconTemplate.png` and `iconTemplate@2x.png`.\n\nTemplate images should consist of only black and clear colors, and macOS will\nmix with other content to create best appearance. This is useful for tray\nicons and menu item icons that automatically adjust to light and dark themes.\n",
+  "class_methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "Image",
+          "id": "image"
+        },
+        "name": "createempty",
+        "parameters": [],
+        "str": "createempty()"
+      },
+      "description": "Create an empty image.",
+      "id": "createempty"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Image",
+          "id": "image"
+        },
+        "name": "createfrompath",
+        "parameters": [
+          {
+            "type": {
+              "name": "string"
+            },
+            "name": "path"
+          }
+        ],
+        "str": "createfrompath(path)"
+      },
+      "description": "Create an image by reading from `path`.",
+      "id": "createfrompath-path"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Image",
+          "id": "image"
+        },
+        "name": "createfrombuffer",
+        "parameters": [
+          {
+            "type": {
+              "name": "string"
+            },
+            "name": "buffer"
+          },
+          {
+            "type": {
+              "name": "number"
+            },
+            "name": "scalefactor"
+          }
+        ],
+        "str": "createfrombuffer(buffer, scalefactor)"
+      },
+      "description": "Create an image from `buffer` in memory, with `scale_factor`.\n",
+      "id": "createfrombuffer-buffer-scalefactor"
+    }
+  ],
+  "methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "SizeF",
+          "id": "sizef"
+        },
+        "name": "getsize",
+        "parameters": [],
+        "str": "getsize()"
+      },
+      "description": "Return image's size in DIP.",
+      "id": "getsize"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "number"
+        },
+        "name": "getscalefactor",
+        "parameters": [],
+        "str": "getscalefactor()"
+      },
+      "description": "Return image's scale factor.",
+      "id": "getscalefactor"
+    }
+  ],
+  "module": "yue.gui",
+  "id": "image"
+}
