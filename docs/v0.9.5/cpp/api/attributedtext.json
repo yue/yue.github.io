@@ -1,0 +1,245 @@
+{
+  "name": "AttributedText",
+  "component": "gui",
+  "header": "nativeui/gfx/attributed_text.h",
+  "type": "refcounted",
+  "namespace": "nu",
+  "description": "Text with styles.",
+  "detail": "On Windows, due to the limitations of GdiPlus, it is only supported to change\nthe whole text's color and font, i.e. the `SetFontFor` and `SetColorFor` APIs\nare unsupported.\n",
+  "constructors": [
+    {
+      "signature": {
+        "name": "AttributedText",
+        "parameters": [
+          {
+            "type": {
+              "name": "const std::string&"
+            },
+            "name": "text"
+          },
+          {
+            "type": {
+              "name": "TextFormat",
+              "id": "textformat"
+            },
+            "name": "format"
+          }
+        ],
+        "str": "AttributedText(const std::string& text, TextFormat format)"
+      },
+      "description": "Create an `AttributedText` with `format` and default font and color.\n",
+      "id": "attributedtext-text-format"
+    },
+    {
+      "signature": {
+        "name": "AttributedText",
+        "parameters": [
+          {
+            "type": {
+              "name": "const std::string&"
+            },
+            "name": "text"
+          },
+          {
+            "type": {
+              "name": "TextAttributes",
+              "id": "textattributes"
+            },
+            "name": "attributes"
+          }
+        ],
+        "str": "AttributedText(const std::string& text, TextAttributes attributes)"
+      },
+      "description": "Create an `AttributedText` with `attributes`.",
+      "id": "attributedtext-text-attributes"
+    }
+  ],
+  "methods": [
+    {
+      "signature": {
+        "name": "SetFormat",
+        "parameters": [
+          {
+            "type": {
+              "name": "TextFormat",
+              "id": "textformat"
+            },
+            "name": "format"
+          }
+        ],
+        "str": "void SetFormat(TextFormat format)"
+      },
+      "description": "Overwrite styles with `format`.",
+      "id": "setformat-format"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "const TextFormat&",
+          "id": "textformat"
+        },
+        "name": "GetFormat",
+        "parameters": [],
+        "str": "const TextFormat& GetFormat() const"
+      },
+      "description": "Return current styles.",
+      "id": "getformat"
+    },
+    {
+      "signature": {
+        "name": "SetFont",
+        "parameters": [
+          {
+            "type": {
+              "name": "scoped_refptr<Font>",
+              "id": "font"
+            },
+            "name": "font"
+          }
+        ],
+        "str": "void SetFont(scoped_refptr<Font> font)"
+      },
+      "description": "Set the whole text's `font`.",
+      "id": "setfont-font"
+    },
+    {
+      "signature": {
+        "name": "SetFontFor",
+        "parameters": [
+          {
+            "type": {
+              "name": "scoped_refptr<Font>",
+              "id": "font"
+            },
+            "name": "font"
+          },
+          {
+            "type": {
+              "name": "int"
+            },
+            "name": "start"
+          },
+          {
+            "type": {
+              "name": "int"
+            },
+            "name": "end"
+          }
+        ],
+        "str": "void SetFontFor(scoped_refptr<Font> font, int start, int end)"
+      },
+      "platform": [
+        "macOS",
+        "Linux"
+      ],
+      "description": "Set the `font` of text between character range `[start, end)`. Passing\n`-1` as `end` means the rest of the text.\n",
+      "id": "setfontfor-font-start-end"
+    },
+    {
+      "signature": {
+        "name": "SetColor",
+        "parameters": [
+          {
+            "type": {
+              "name": "Color",
+              "id": "color"
+            },
+            "name": "color"
+          }
+        ],
+        "str": "void SetColor(Color color)"
+      },
+      "description": "Set the whole text's `color`.",
+      "id": "setcolor-color"
+    },
+    {
+      "signature": {
+        "name": "SetColorFor",
+        "parameters": [
+          {
+            "type": {
+              "name": "Color",
+              "id": "color"
+            },
+            "name": "font"
+          },
+          {
+            "type": {
+              "name": "int"
+            },
+            "name": "start"
+          },
+          {
+            "type": {
+              "name": "int"
+            },
+            "name": "end"
+          }
+        ],
+        "str": "void SetColorFor(Color font, int start, int end)"
+      },
+      "platform": [
+        "macOS",
+        "Linux"
+      ],
+      "description": "Set the `color` of text between character range `[start, end)`. Passing\n`-1` as `end` means the rest of the text.\n",
+      "id": "setcolorfor-font-start-end"
+    },
+    {
+      "signature": {
+        "name": "Clear",
+        "parameters": [],
+        "str": "void Clear()"
+      },
+      "description": "Reset font and color to system default.",
+      "id": "clear"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "RectF",
+          "id": "rectf"
+        },
+        "name": "GetBoundsFor",
+        "parameters": [
+          {
+            "type": {
+              "name": "const SizeF&",
+              "id": "sizef"
+            },
+            "name": "size"
+          }
+        ],
+        "str": "RectF GetBoundsFor(const SizeF& size) const"
+      },
+      "description": "Return the bounds required to draw the text within `size`.",
+      "id": "getboundsfor-size"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "std::string"
+        },
+        "name": "GetText",
+        "parameters": [],
+        "str": "std::string GetText() const"
+      },
+      "description": "Return the plain text.",
+      "id": "gettext"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "NativeAttributedText",
+          "id": "nativeattributedtext"
+        },
+        "name": "GetNative",
+        "parameters": [],
+        "str": "NativeAttributedText GetNative() const"
+      },
+      "description": "Return the native instance wrapped by the class.",
+      "id": "getnative"
+    }
+  ],
+  "id": "attributedtext"
+}
