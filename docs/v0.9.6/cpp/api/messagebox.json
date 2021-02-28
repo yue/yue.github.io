@@ -1,0 +1,325 @@
+{
+  "name": "MessageBox",
+  "component": "gui",
+  "header": "nativeui/message_box.h",
+  "type": "refcounted",
+  "namespace": "nu",
+  "description": "A window showing some text and buttons.",
+  "constructors": [
+    {
+      "signature": {
+        "name": "MessageBox",
+        "parameters": [],
+        "str": "MessageBox()"
+      },
+      "description": "Create a message box.",
+      "id": "messagebox"
+    }
+  ],
+  "methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "int"
+        },
+        "name": "Run",
+        "parameters": [],
+        "str": "int Run()"
+      },
+      "description": "Show the message box and wait for result. Response ID will be returned.\n",
+      "id": "run"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "int"
+        },
+        "name": "RunForWindow",
+        "parameters": [
+          {
+            "type": {
+              "name": "Window*",
+              "id": "window"
+            },
+            "name": "window"
+          }
+        ],
+        "str": "int RunForWindow(Window* window)"
+      },
+      "description": "Show the message box as a child for `window` and wait for result.\nResponse ID will be returned.\n",
+      "id": "runforwindow-window"
+    },
+    {
+      "signature": {
+        "name": "Show",
+        "parameters": [],
+        "str": "void Show()"
+      },
+      "platform": [
+        "Windows",
+        "Linux"
+      ],
+      "description": "Show the message box. The `<!name>on_response` event will be emitted when\nthe message box is closed.\n",
+      "id": "show"
+    },
+    {
+      "signature": {
+        "name": "ShowForWindow",
+        "parameters": [
+          {
+            "type": {
+              "name": "Window*",
+              "id": "window"
+            },
+            "name": "window"
+          }
+        ],
+        "str": "void ShowForWindow(Window* window)"
+      },
+      "description": "Show the message box as a child of `window`. The `<!name>on_response`\nevent will be emitted when the message box is closed.\n",
+      "id": "showforwindow-window"
+    },
+    {
+      "signature": {
+        "name": "Close",
+        "parameters": [],
+        "str": "void Close()"
+      },
+      "description": "Close the message box. The cancel response ID will be used as result.\n",
+      "id": "close"
+    },
+    {
+      "signature": {
+        "name": "SetType",
+        "parameters": [
+          {
+            "type": {
+              "name": "MessageBox::Type",
+              "id": "messagebox_type"
+            },
+            "name": "type"
+          }
+        ],
+        "str": "void SetType(MessageBox::Type type)"
+      },
+      "description": "Set the `type` of message box, system will show the corresponding icon in\nthe message box.\n",
+      "detail": "On macOS there is no visual difference between `information` and `warning`\ntypes.\nOn Linux this method has no effect if a custom icon has been set.\n",
+      "id": "settype-type"
+    },
+    {
+      "signature": {
+        "name": "SetTitle",
+        "parameters": [
+          {
+            "type": {
+              "name": "const std::string&"
+            },
+            "name": "title"
+          }
+        ],
+        "str": "void SetTitle(const std::string& title)"
+      },
+      "platform": [
+        "Windows",
+        "Linux"
+      ],
+      "description": "Set the message box window's title.",
+      "id": "settitle-title"
+    },
+    {
+      "signature": {
+        "name": "AddButton",
+        "parameters": [
+          {
+            "type": {
+              "name": "const std::string&"
+            },
+            "name": "title"
+          },
+          {
+            "type": {
+              "name": "int"
+            },
+            "name": "response"
+          }
+        ],
+        "str": "void AddButton(const std::string& title, int response)"
+      },
+      "description": "Add a button with `title`. The `response` ID will be used as result when\nthe button is clicked.\n",
+      "id": "addbutton-title-response"
+    },
+    {
+      "signature": {
+        "name": "SetDefaultResponse",
+        "parameters": [
+          {
+            "type": {
+              "name": "int"
+            },
+            "name": "response"
+          }
+        ],
+        "str": "void SetDefaultResponse(int response)"
+      },
+      "description": "Set the default `response` ID, when user presses the <kbd>Enter</kbd> key\nthe button associated with the ID will be clicked.\n",
+      "id": "setdefaultresponse-response"
+    },
+    {
+      "signature": {
+        "name": "SetCancelResponse",
+        "parameters": [
+          {
+            "type": {
+              "name": "int"
+            },
+            "name": "response"
+          }
+        ],
+        "str": "void SetCancelResponse(int response)"
+      },
+      "description": "Set the cancel `response` ID that will be used as result  when user\npresses the <kbd>Esc</kbd> key or when the window is closed without\nclicking any button.\n",
+      "detail": "The default cancel response ID is -1.",
+      "id": "setcancelresponse-response"
+    },
+    {
+      "signature": {
+        "name": "SetText",
+        "parameters": [
+          {
+            "type": {
+              "name": "const std::string&"
+            },
+            "name": "text"
+          }
+        ],
+        "str": "void SetText(const std::string& text)"
+      },
+      "description": "Set the message box's message text.",
+      "id": "settext-text"
+    },
+    {
+      "signature": {
+        "name": "SetInformativeText",
+        "parameters": [
+          {
+            "type": {
+              "name": "const std::string&"
+            },
+            "name": "text"
+          }
+        ],
+        "str": "void SetInformativeText(const std::string& text)"
+      },
+      "description": "Set informative text that will show bellow the message text.",
+      "id": "setinformativetext-text"
+    },
+    {
+      "signature": {
+        "name": "SetAccessoryView",
+        "parameters": [
+          {
+            "type": {
+              "name": "scoped_refptr<View>",
+              "id": "view"
+            },
+            "name": "view"
+          }
+        ],
+        "str": "void SetAccessoryView(scoped_refptr<View> view)"
+      },
+      "platform": [
+        "macOS",
+        "Linux"
+      ],
+      "description": "Set the accessory `view` that will be placed between the text and the\nbuttons. The `view` must be given a size before being used as accessory\nview.\n",
+      "id": "setaccessoryview-view"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "View*",
+          "id": "view"
+        },
+        "name": "GetAccessoryView",
+        "parameters": [],
+        "str": "View* GetAccessoryView() const"
+      },
+      "platform": [
+        "macOS",
+        "Linux"
+      ],
+      "description": "Return the accessory view.",
+      "id": "getaccessoryview"
+    },
+    {
+      "signature": {
+        "name": "SetImage",
+        "parameters": [
+          {
+            "type": {
+              "name": "scoped_refptr<Image>",
+              "id": "image"
+            },
+            "name": "image"
+          }
+        ],
+        "str": "void SetImage(scoped_refptr<Image> image)"
+      },
+      "description": "Set the custom icon displayed in the message box.",
+      "detail": "On macOS the default icon is the app's icon, on Windows and Linux there\nis no default icon.\n",
+      "id": "setimage-image"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Image*",
+          "id": "image"
+        },
+        "name": "GetImage",
+        "parameters": [],
+        "str": "Image* GetImage() const"
+      },
+      "description": "Return the custom icon.",
+      "id": "getimage"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "NativeMessageBox",
+          "id": "nativemessagebox"
+        },
+        "name": "GetNative",
+        "parameters": [],
+        "str": "NativeMessageBox GetNative() const"
+      },
+      "description": "Return the native instance wrapped by the class.",
+      "id": "getnative"
+    }
+  ],
+  "events": [
+    {
+      "callback": {
+        "name": "on_response",
+        "parameters": [
+          {
+            "type": {
+              "name": "MessageBox*",
+              "id": "messagebox"
+            },
+            "name": "self"
+          },
+          {
+            "type": {
+              "name": "int"
+            },
+            "name": "response"
+          }
+        ],
+        "str": "void on_response(MessageBox* self, int response)"
+      },
+      "description": "Emitted when the message box is closed.",
+      "id": "onresponse-self-response"
+    }
+  ],
+  "id": "messagebox"
+}

@@ -1,0 +1,181 @@
+{
+  "name": "App",
+  "component": "gui",
+  "header": "nativeui/app.h",
+  "type": "class",
+  "singleton": true,
+  "namespace": "nu",
+  "description": "Application class.",
+  "detail": "This class represents current app and provides app wide APIs.\n\nThis class can not be created by user, you must create `State` first and\nthen receive an instance of `App` via `App::GetCurrent`.\n\n```cpp\nnu::State state;\nnu::App* app = nu::App::GetCurrent();\n```\n",
+  "class_methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "App*",
+          "id": "app"
+        },
+        "name": "GetCurrent",
+        "parameters": [],
+        "str": "App* GetCurrent()"
+      },
+      "description": "Return current app.",
+      "id": "getcurrent"
+    }
+  ],
+  "methods": [
+    {
+      "signature": {
+        "name": "SetApplicationMenu",
+        "parameters": [
+          {
+            "type": {
+              "name": "scoped_refptr<MenuBar>",
+              "id": "menubar"
+            },
+            "name": "menu"
+          }
+        ],
+        "str": "void SetApplicationMenu(scoped_refptr<MenuBar> menu)"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Set the application menu bar.",
+      "id": "setapplicationmenu-menu"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "MenuBar*",
+          "id": "menubar"
+        },
+        "name": "GetApplicationMenu",
+        "parameters": [],
+        "str": "MenuBar* GetApplicationMenu() const"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Return the application menu bar.",
+      "id": "getapplicationmenu"
+    },
+    {
+      "signature": {
+        "name": "SetDockBadgeLabel",
+        "parameters": [
+          {
+            "type": {
+              "name": "const std::string&"
+            },
+            "name": "label"
+          }
+        ],
+        "str": "void SetDockBadgeLabel(const std::string& label)"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Set the `label` to be displayed in dock’s badging area.",
+      "id": "setdockbadgelabel-label"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "std::string"
+        },
+        "name": "GetDockBadgeLabel",
+        "parameters": [],
+        "str": "std::string GetDockBadgeLabel() const"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Get the label displayed in dock’s badging area.",
+      "id": "getdockbadgelabel"
+    },
+    {
+      "signature": {
+        "name": "Activate",
+        "parameters": [
+          {
+            "type": {
+              "name": "bool"
+            },
+            "name": "force"
+          }
+        ],
+        "str": "void Activate(bool force)"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Make current app the active app.",
+      "detail": "The `force` parameter is normally set to false. When the Finder launches\nan app, using a value of false for `force` allows the app to become active\nif the user waits for it to launch, but the app remains unobtrusive if the\nuser activates another app. Regardless of the setting of flag, there may\nbe a time lag before the app activates—you should not assume the app will\nbe active immediately after sending this message.\n",
+      "id": "activate-force"
+    },
+    {
+      "signature": {
+        "name": "Deactivate",
+        "parameters": [],
+        "str": "void Deactivate()"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Deactivate current app.",
+      "id": "deactivate"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "bool"
+        },
+        "name": "IsActive",
+        "parameters": [],
+        "str": "bool IsActive()"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Return whether current app is the active app.",
+      "id": "isactive"
+    },
+    {
+      "signature": {
+        "name": "SetActivationPolicy",
+        "parameters": [
+          {
+            "type": {
+              "name": "App::ActivationPolicy",
+              "id": "app_activationpolicy"
+            },
+            "name": "policy"
+          }
+        ],
+        "str": "void SetActivationPolicy(App::ActivationPolicy policy)"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Modify the app's activation policy.",
+      "id": "setactivationpolicy-policy"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "App::ActivationPolicy",
+          "id": "app_activationpolicy"
+        },
+        "name": "GetActivationPolicy",
+        "parameters": [],
+        "str": "App::ActivationPolicy GetActivationPolicy() const"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Return app's activation policy.",
+      "id": "getactivationpolicy"
+    }
+  ],
+  "id": "app"
+}

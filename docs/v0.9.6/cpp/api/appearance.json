@@ -1,0 +1,71 @@
+{
+  "name": "Appearance",
+  "component": "gui",
+  "header": "nativeui/appearance.h",
+  "type": "class",
+  "singleton": true,
+  "namespace": "nu",
+  "description": "Information about user's appearance preferences.",
+  "class_methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "Appearance*",
+          "id": "appearance"
+        },
+        "name": "GetCurrent",
+        "parameters": [],
+        "str": "Appearance* GetCurrent()"
+      },
+      "description": "Return current Appearance instance.",
+      "id": "getcurrent"
+    }
+  ],
+  "methods": [
+    {
+      "signature": {
+        "name": "SetDarkModeEnabled",
+        "parameters": [
+          {
+            "type": {
+              "name": "bool"
+            },
+            "name": "enable"
+          }
+        ],
+        "str": "void SetDarkModeEnabled(bool enable)"
+      },
+      "platform": [
+        "Windows"
+      ],
+      "description": "Enable Windows 10 dark mode for current app.",
+      "detail": "The dark mode of Windows 10 does not support Win32 apps officially and\nthis API makes use of private APIs to force enabling dark mode for current\napp.\n\nNote that this API can only enable dark mode for window titlebars, all\nthe views and colors are still using light color schemes. You should only\nuse this API when developing custom-drawn apps.\n",
+      "id": "setdarkmodeenabled-enable"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "bool"
+        },
+        "name": "IsDarkScheme",
+        "parameters": [],
+        "str": "bool IsDarkScheme() const"
+      },
+      "description": "Return whether this app is using a dark color scheme.",
+      "detail": "Note that on Windows the dark mode does not support Win32 apps, and this\nmethod will always return false unless dark mode is explicitly enabled\nwith `<!name>SetDarkModeEnabled`.\n",
+      "id": "isdarkscheme"
+    }
+  ],
+  "events": [
+    {
+      "callback": {
+        "name": "on_color_scheme_change",
+        "parameters": [],
+        "str": "void on_color_scheme_change()"
+      },
+      "description": "Emitted when user has changed system color scheme preferences.",
+      "id": "oncolorschemechange"
+    }
+  ],
+  "id": "appearance"
+}

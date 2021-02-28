@@ -1,0 +1,167 @@
+{
+  "name": "App",
+  "component": "gui",
+  "header": "nativeui/app.h",
+  "type": "Class",
+  "singleton": true,
+  "namespace": "nu",
+  "description": "Application class.",
+  "detail": "This class represents current app and provides app wide APIs.\n\nThis class can not be created by user, you can only receive its global\ninstance from the `app` property of the module:\n\n```js\ngui.app.getApplicationMenu()\n```\n",
+  "methods": [
+    {
+      "signature": {
+        "name": "setApplicationMenu",
+        "parameters": [
+          {
+            "type": {
+              "name": "MenuBar",
+              "id": "menubar"
+            },
+            "name": "menu"
+          }
+        ],
+        "str": "setApplicationMenu(menu)"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Set the application menu bar.",
+      "id": "setapplicationmenu-menu"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "MenuBar",
+          "id": "menubar"
+        },
+        "name": "getApplicationMenu",
+        "parameters": [],
+        "str": "getApplicationMenu()"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Return the application menu bar.",
+      "id": "getapplicationmenu"
+    },
+    {
+      "signature": {
+        "name": "setDockBadgeLabel",
+        "parameters": [
+          {
+            "type": {
+              "name": "String"
+            },
+            "name": "label"
+          }
+        ],
+        "str": "setDockBadgeLabel(label)"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Set the `label` to be displayed in dock’s badging area.",
+      "id": "setdockbadgelabel-label"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "String"
+        },
+        "name": "getDockBadgeLabel",
+        "parameters": [],
+        "str": "getDockBadgeLabel()"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Get the label displayed in dock’s badging area.",
+      "id": "getdockbadgelabel"
+    },
+    {
+      "signature": {
+        "name": "activate",
+        "parameters": [
+          {
+            "type": {
+              "name": "Boolean"
+            },
+            "name": "force"
+          }
+        ],
+        "str": "activate(force)"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Make current app the active app.",
+      "detail": "The `force` parameter is normally set to false. When the Finder launches\nan app, using a value of false for `force` allows the app to become active\nif the user waits for it to launch, but the app remains unobtrusive if the\nuser activates another app. Regardless of the setting of flag, there may\nbe a time lag before the app activates—you should not assume the app will\nbe active immediately after sending this message.\n",
+      "id": "activate-force"
+    },
+    {
+      "signature": {
+        "name": "deactivate",
+        "parameters": [],
+        "str": "deactivate()"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Deactivate current app.",
+      "id": "deactivate"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Boolean"
+        },
+        "name": "isActive",
+        "parameters": [],
+        "str": "isActive()"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Return whether current app is the active app.",
+      "id": "isactive"
+    },
+    {
+      "signature": {
+        "name": "setActivationPolicy",
+        "parameters": [
+          {
+            "type": {
+              "name": "App::ActivationPolicy",
+              "id": "app_activationpolicy"
+            },
+            "name": "policy"
+          }
+        ],
+        "str": "setActivationPolicy(policy)"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Modify the app's activation policy.",
+      "id": "setactivationpolicy-policy"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "App::ActivationPolicy",
+          "id": "app_activationpolicy"
+        },
+        "name": "getActivationPolicy",
+        "parameters": [],
+        "str": "getActivationPolicy()"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Return app's activation policy.",
+      "id": "getactivationpolicy"
+    }
+  ],
+  "module": "gui",
+  "id": "app"
+}

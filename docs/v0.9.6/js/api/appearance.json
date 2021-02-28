@@ -1,0 +1,57 @@
+{
+  "name": "Appearance",
+  "component": "gui",
+  "header": "nativeui/appearance.h",
+  "type": "Object",
+  "singleton": true,
+  "namespace": "nu",
+  "description": "Information about user's appearance preferences.",
+  "methods": [
+    {
+      "signature": {
+        "name": "setDarkModeEnabled",
+        "parameters": [
+          {
+            "type": {
+              "name": "Boolean"
+            },
+            "name": "enable"
+          }
+        ],
+        "str": "setDarkModeEnabled(enable)"
+      },
+      "platform": [
+        "Windows"
+      ],
+      "description": "Enable Windows 10 dark mode for current app.",
+      "detail": "The dark mode of Windows 10 does not support Win32 apps officially and\nthis API makes use of private APIs to force enabling dark mode for current\napp.\n\nNote that this API can only enable dark mode for window titlebars, all\nthe views and colors are still using light color schemes. You should only\nuse this API when developing custom-drawn apps.\n",
+      "id": "setdarkmodeenabled-enable"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Boolean"
+        },
+        "name": "isDarkScheme",
+        "parameters": [],
+        "str": "isDarkScheme()"
+      },
+      "description": "Return whether this app is using a dark color scheme.",
+      "detail": "Note that on Windows the dark mode does not support Win32 apps, and this\nmethod will always return false unless dark mode is explicitly enabled\nwith `<!name>SetDarkModeEnabled`.\n",
+      "id": "isdarkscheme"
+    }
+  ],
+  "events": [
+    {
+      "callback": {
+        "name": "onColorSchemeChange",
+        "parameters": [],
+        "str": "onColorSchemeChange()"
+      },
+      "description": "Emitted when user has changed system color scheme preferences.",
+      "id": "oncolorschemechange"
+    }
+  ],
+  "module": "gui",
+  "id": "appearance"
+}
