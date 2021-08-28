@@ -1,0 +1,170 @@
+{
+  "name": "Screen",
+  "component": "gui",
+  "header": "nativeui/screen.h",
+  "type": "class",
+  "singleton": true,
+  "namespace": "nu",
+  "description": "Receive information about system’s monitor or screen.",
+  "class_methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "Screen*",
+          "id": "screen"
+        },
+        "name": "GetCurrent",
+        "parameters": [],
+        "shortStr": "GetCurrent()",
+        "str": "Screen* GetCurrent()"
+      },
+      "description": "Return the screen instance.",
+      "id": "getcurrent"
+    }
+  ],
+  "methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "Display",
+          "id": "display"
+        },
+        "name": "GetPrimaryDisplay",
+        "parameters": [],
+        "shortStr": "GetPrimaryDisplay()",
+        "str": "Display GetPrimaryDisplay()"
+      },
+      "description": "Return the primary display.",
+      "id": "getprimarydisplay"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "const std::vector<Display>&"
+        },
+        "name": "GetAllDisplays",
+        "parameters": [],
+        "shortStr": "GetAllDisplays()",
+        "str": "const std::vector<Display>& GetAllDisplays()"
+      },
+      "description": "Return the list of displays that are currently available.",
+      "id": "getalldisplays"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Display",
+          "id": "display"
+        },
+        "name": "GetDisplayNearestWindow",
+        "parameters": [
+          {
+            "type": {
+              "name": "Window*",
+              "id": "window"
+            },
+            "name": "window"
+          }
+        ],
+        "shortStr": "GetDisplayNearestWindow(window)",
+        "str": "Display GetDisplayNearestWindow(Window* window)"
+      },
+      "description": "Return the display nearest the specified `window`.",
+      "id": "getdisplaynearestwindow-window"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Display",
+          "id": "display"
+        },
+        "name": "GetDisplayNearestPoint",
+        "parameters": [
+          {
+            "type": {
+              "name": "const PointF&",
+              "id": "pointf"
+            },
+            "name": "point"
+          }
+        ],
+        "shortStr": "GetDisplayNearestPoint(point)",
+        "str": "Display GetDisplayNearestPoint(const PointF& point)"
+      },
+      "description": "Return the display nearest the specified DIP `point`.",
+      "id": "getdisplaynearestpoint-point"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "PointF",
+          "id": "pointf"
+        },
+        "name": "GetCursorScreenPoint",
+        "parameters": [],
+        "shortStr": "GetCursorScreenPoint()",
+        "str": "PointF GetCursorScreenPoint()"
+      },
+      "description": "Return the current absolute position of the mouse pointer.",
+      "id": "getcursorscreenpoint"
+    }
+  ],
+  "events": [
+    {
+      "signature": {
+        "name": "on_add_display",
+        "parameters": [
+          {
+            "type": {
+              "name": "const Display&",
+              "id": "display"
+            },
+            "name": "display"
+          }
+        ],
+        "shortStr": "on_add_display(display)",
+        "str": "void on_add_display(const Display& display)"
+      },
+      "description": "Emitted when a new `display` is available.",
+      "id": "onadddisplay-display"
+    },
+    {
+      "signature": {
+        "name": "on_remove_display",
+        "parameters": [
+          {
+            "type": {
+              "name": "const Display&",
+              "id": "display"
+            },
+            "name": "display"
+          }
+        ],
+        "shortStr": "on_remove_display(display)",
+        "str": "void on_remove_display(const Display& display)"
+      },
+      "description": "Emitted when the `display` has been removed.",
+      "id": "onremovedisplay-display"
+    },
+    {
+      "signature": {
+        "name": "on_update_display",
+        "parameters": [
+          {
+            "type": {
+              "name": "const Display&",
+              "id": "display"
+            },
+            "name": "display"
+          }
+        ],
+        "shortStr": "on_update_display(display)",
+        "str": "void on_update_display(const Display& display)"
+      },
+      "description": "Emitted when there are changes happened to `display`.",
+      "id": "onupdatedisplay-display"
+    }
+  ],
+  "detail": "\nThis class can not be created by user, you must create `State` first and\nthen receive an instance of `Screen` via `Screen::GetCurrent`.\n\n```cpp\nnu::State state;\nnu::Screen* screen = nu::Screen::GetCurrent();\n```\n",
+  "id": "screen"
+}
