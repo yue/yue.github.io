@@ -15,6 +15,12 @@
 <p>There were lots of good GUI toolkits, but I could not find one that meets all above conditions, so I decided to write my own.</p>
 <h3 id="do-i-need-to-open-source-my-project-when-using-yue-">Do I need to open source my project when using Yue?</h3>
 <p>Unless you have modified Yue&#39;s source code and linked your project with Yue statically, there is no requirements on which license your project should use.</p>
+<h3 id="window-disappears-after-some-time-when-using-yode-">Window disappears after some time when using Yode.</h3>
+<p>You might notice <code>Window</code> or <code>Tray</code> instances disappearing after running for some time when using Yode, this is usually because the JavaScript objects of those instances got garbage collected.</p>
+<p>When using Node.js to run code, the whole program will block at the <code>gui.MessageLoop.run()</code> call, and the local variables defined in the main script will not be garbage collected, i.e. the <code>win</code> object will live until the program quits.</p>
+<p>However when switching to Yode, the execution of the main script will finish immediately, and the local variables will be garbage collected as usual, i.e. the <code>win</code> object will be garbage collected after some time and the window will disappear.</p>
+<p>For simple apps you can fix it by declaring the main window as a global variable.</p>
+<p>For multi-window apps it is recommended to manage the windows with a global map.</p>
 <h3 id="what-s-the-minimum-version-of-windows-supported-">What&#39;s the minimum version of Windows supported?</h3>
 <p>By using Win32 API and GDI+, Yue can work on Windows &gt;= 7. It is also possible to make Yue work on Windows XP with some efforts, but this is not on my roadmap.</p>
 <h3 id="why-using-windowless-controls-on-windows-">Why using windowless controls on Windows?</h3>
