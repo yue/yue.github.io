@@ -1,0 +1,182 @@
+{
+  "name": "Slider",
+  "component": "gui",
+  "header": "nativeui/slider.h",
+  "type": "refcounted",
+  "namespace": "nu",
+  "inherit": {
+    "name": "View",
+    "id": "view"
+  },
+  "description": "A slider bar for selecting numerical value.",
+  "detail": "The default range is between `0` and `100`.",
+  "constructors": [
+    {
+      "signature": {
+        "name": "Slider",
+        "parameters": [],
+        "shortStr": "Slider()",
+        "str": "Slider()"
+      },
+      "description": "Create a new `Slider` view.",
+      "id": "slider"
+    }
+  ],
+  "class_properties": [
+    {
+      "description": "The class name of this view.",
+      "id": "kclassname",
+      "type": {
+        "name": "const char*"
+      },
+      "name": "kClassName"
+    }
+  ],
+  "methods": [
+    {
+      "signature": {
+        "name": "SetValue",
+        "parameters": [
+          {
+            "type": {
+              "name": "float"
+            },
+            "name": "value"
+          }
+        ],
+        "shortStr": "SetValue(value)",
+        "str": "void SetValue(float value)"
+      },
+      "description": "Set the value.",
+      "id": "setvalue-value"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "float"
+        },
+        "name": "GetValue",
+        "parameters": [],
+        "shortStr": "GetValue()",
+        "str": "float GetValue() const"
+      },
+      "description": "Return the value.",
+      "id": "getvalue"
+    },
+    {
+      "signature": {
+        "name": "SetStep",
+        "parameters": [
+          {
+            "type": {
+              "name": "float"
+            },
+            "name": "step"
+          }
+        ],
+        "shortStr": "SetStep(step)",
+        "str": "void SetStep(float step)"
+      },
+      "description": "Set the step value of the slider.",
+      "id": "setstep-step"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "float"
+        },
+        "name": "GetStep",
+        "parameters": [],
+        "shortStr": "GetStep()",
+        "str": "float GetStep() const"
+      },
+      "description": "Return the step value of the slider.",
+      "id": "getstep"
+    },
+    {
+      "signature": {
+        "name": "SetRange",
+        "parameters": [
+          {
+            "type": {
+              "name": "float"
+            },
+            "name": "min"
+          },
+          {
+            "type": {
+              "name": "float"
+            },
+            "name": "max"
+          }
+        ],
+        "shortStr": "SetRange(min, max)",
+        "str": "void SetRange(float min, float max)"
+      },
+      "description": "Set the range of the slider.",
+      "id": "setrange-min-max"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "std::tuple<float, float>",
+          "template": "std::tuple",
+          "args": [
+            {
+              "name": "float"
+            },
+            {
+              "name": "float"
+            }
+          ]
+        },
+        "name": "GetRange",
+        "parameters": [],
+        "shortStr": "GetRange()",
+        "str": "std::tuple<float, float> GetRange() const"
+      },
+      "description": "Return the range of the slider.",
+      "id": "getrange"
+    }
+  ],
+  "events": [
+    {
+      "signature": {
+        "name": "on_value_change",
+        "parameters": [
+          {
+            "type": {
+              "name": "Slider*",
+              "id": "slider"
+            },
+            "name": "self"
+          }
+        ],
+        "shortStr": "on_value_change(self)",
+        "str": "void on_value_change(Slider* self)"
+      },
+      "description": "Emitted when user is changing the slider.",
+      "id": "onvaluechange-self"
+    },
+    {
+      "signature": {
+        "name": "on_sliding_complete",
+        "parameters": [
+          {
+            "type": {
+              "name": "Slider*",
+              "id": "slider"
+            },
+            "name": "self"
+          }
+        ],
+        "shortStr": "on_sliding_complete(self)",
+        "str": "void on_sliding_complete(Slider* self)"
+      },
+      "description": "Emitted when user releases the slider.",
+      "detail": "Note that this event only emits when user was dragging the slider with\nmouse or trackpad, it does not emit when user was moving the slider with\nkeyboard.\n",
+      "id": "onslidingcomplete-self"
+    }
+  ],
+  "id": "slider"
+}

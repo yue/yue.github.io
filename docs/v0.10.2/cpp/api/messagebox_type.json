@@ -1,0 +1,22 @@
+{
+  "name": "MessageBox::Type",
+  "header": "nativeui/message_box.h",
+  "type": "enum class",
+  "namespace": "nu",
+  "description": "Represent possible `MessageBox` types.",
+  "enums": [
+    {
+      "name": "MessageBox::Type::None"
+    },
+    {
+      "name": "MessageBox::Type::Information"
+    },
+    {
+      "name": "MessageBox::Type::Warning"
+    },
+    {
+      "name": "MessageBox::Type::Error"
+    }
+  ],
+  "id": "messagebox_type"
+}
