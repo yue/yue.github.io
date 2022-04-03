@@ -1,0 +1,25 @@
+{
+  "name": "MenuItem::Type",
+  "header": "nativeui/menu_item.h",
+  "type": "enum class",
+  "namespace": "nu",
+  "description": "Represent possible `Menuitem` types.",
+  "enums": [
+    {
+      "name": "MenuItem::Type::Label"
+    },
+    {
+      "name": "MenuItem::Type::Checkbox"
+    },
+    {
+      "name": "MenuItem::Type::Radio"
+    },
+    {
+      "name": "MenuItem::Type::Separator"
+    },
+    {
+      "name": "MenuItem::Type::Submenu"
+    }
+  ],
+  "id": "menuitem_type"
+}
