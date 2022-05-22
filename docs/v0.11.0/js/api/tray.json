@@ -1,0 +1,206 @@
+{
+  "name": "Tray",
+  "component": "gui",
+  "header": "nativeui/tray.h",
+  "type": "Class",
+  "namespace": "nu",
+  "description": "Tray item displayed in system notification area.",
+  "detail": "Platform limitations:\n\n* On Linux tray items are displayed as app indicators.\n* On Linux there is no fallback when app indicators are not supported.\n* On Linux app indicator can only show when it has menu attached.\n* On Windows you have to explicitly remove the tray item on exit, otherwise\n  a zombie icon would be left.\n",
+  "class_methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "Tray",
+          "id": "tray"
+        },
+        "name": "createWithImage",
+        "parameters": [
+          {
+            "type": {
+              "name": "Image",
+              "id": "image"
+            },
+            "name": "icon"
+          }
+        ],
+        "shortStr": "createWithImage(icon)",
+        "str": "createWithImage(icon)"
+      },
+      "description": "Create a tray item with `icon`.",
+      "id": "createwithimage-icon"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Tray",
+          "id": "tray"
+        },
+        "name": "createWithTitle",
+        "parameters": [
+          {
+            "type": {
+              "name": "String"
+            },
+            "name": "title"
+          }
+        ],
+        "shortStr": "createWithTitle(title)",
+        "str": "createWithTitle(title)"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Create a tray item with only `title`.",
+      "id": "createwithtitle-title"
+    }
+  ],
+  "methods": [
+    {
+      "signature": {
+        "name": "remove",
+        "parameters": [],
+        "shortStr": "remove()",
+        "str": "remove()"
+      },
+      "description": "Remove the tray item.",
+      "id": "remove"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "RectF",
+          "id": "rectf"
+        },
+        "name": "getBounds",
+        "parameters": [],
+        "shortStr": "getBounds()",
+        "str": "getBounds()"
+      },
+      "platform": [
+        "macOS",
+        "Windows"
+      ],
+      "description": "Return the position and size of the tray item.",
+      "id": "getbounds"
+    },
+    {
+      "signature": {
+        "name": "setTitle",
+        "parameters": [
+          {
+            "type": {
+              "name": "String"
+            },
+            "name": "title"
+          }
+        ],
+        "shortStr": "setTitle(title)",
+        "str": "setTitle(title)"
+      },
+      "platform": [
+        "macOS",
+        "Linux"
+      ],
+      "description": "Set title to be displayed aside item's icon.",
+      "id": "settitle-title"
+    },
+    {
+      "signature": {
+        "name": "setImage",
+        "parameters": [
+          {
+            "type": {
+              "name": "Image",
+              "id": "image"
+            },
+            "name": "icon"
+          }
+        ],
+        "shortStr": "setImage(icon)",
+        "str": "setImage(icon)"
+      },
+      "description": "Set the `icon` of tray item.",
+      "id": "setimage-icon"
+    },
+    {
+      "signature": {
+        "name": "setPressedImage",
+        "parameters": [
+          {
+            "type": {
+              "name": "Image",
+              "id": "image"
+            },
+            "name": "image"
+          }
+        ],
+        "shortStr": "setPressedImage(image)",
+        "str": "setPressedImage(image)"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Set the `image` to show when tray item is pressed.",
+      "id": "setpressedimage-image"
+    },
+    {
+      "signature": {
+        "name": "setMenu",
+        "parameters": [
+          {
+            "type": {
+              "name": "Menu",
+              "id": "menu"
+            },
+            "name": "menu"
+          }
+        ],
+        "shortStr": "setMenu(menu)",
+        "str": "setMenu(menu)"
+      },
+      "description": "Set the menu attached with the tray item.",
+      "detail": "On most platforms the menu will show when clicking on the icon, while on\nWindows the menu will only show when when right-clicking on the icon.\n",
+      "id": "setmenu-menu"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Menu",
+          "id": "menu"
+        },
+        "name": "getMenu",
+        "parameters": [],
+        "shortStr": "getMenu()",
+        "str": "getMenu()"
+      },
+      "description": "Return the menu attached.",
+      "id": "getmenu"
+    }
+  ],
+  "events": [
+    {
+      "signature": {
+        "name": "onClick",
+        "parameters": [
+          {
+            "type": {
+              "name": "Tray",
+              "id": "tray"
+            },
+            "name": "self"
+          }
+        ],
+        "shortStr": "onClick(self)",
+        "str": "onClick(self)"
+      },
+      "platform": [
+        "macOS",
+        "Windows"
+      ],
+      "description": "Emitted when the tray item is clicked.",
+      "id": "onclick-self"
+    }
+  ],
+  "module": "gui",
+  "id": "tray"
+}
