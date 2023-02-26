@@ -1,0 +1,96 @@
+{
+  "name": "DraggingInfo",
+  "header": "nativeui/dragging_info.h",
+  "type": "Object",
+  "namespace": "nu",
+  "description": "Information about a dragging session.",
+  "detail": "This class can not be created by user, its instance can only be received in\nthe drag and drop events.\n",
+  "class_properties": [
+    {
+      "description": "No drag operation.",
+      "id": "dragoperationnone",
+      "type": {
+        "name": "Integer"
+      },
+      "name": "dragOperationNone"
+    },
+    {
+      "description": "Drag operation for `Copy`.",
+      "id": "dragoperationcopy",
+      "type": {
+        "name": "Integer"
+      },
+      "name": "dragOperationCopy"
+    },
+    {
+      "description": "Drag operation for `Move`.",
+      "id": "dragoperationmove",
+      "type": {
+        "name": "Integer"
+      },
+      "name": "dragOperationMove"
+    }
+  ],
+  "methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "Boolean"
+        },
+        "name": "isDataAvailable",
+        "parameters": [
+          {
+            "type": {
+              "name": "Clipboard::Data::Type",
+              "id": "clipboard_data_type"
+            },
+            "name": "type"
+          }
+        ],
+        "shortStr": "isDataAvailable(type)",
+        "str": "isDataAvailable(type)"
+      },
+      "description": "Return whether the data of `type` is available.",
+      "detail": "On Linux the dragged data is only available in the `handle_drop` delegate.\n",
+      "id": "isdataavailable-type"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Clipboard::Data",
+          "id": "clipboard_data"
+        },
+        "name": "getData",
+        "parameters": [
+          {
+            "type": {
+              "name": "Clipboard::Data::Type",
+              "id": "clipboard_data_type"
+            },
+            "name": "type"
+          }
+        ],
+        "shortStr": "getData(type)",
+        "str": "getData(type)"
+      },
+      "description": "Get the data of `type` from clipboard.",
+      "detail": "On Linux the dragged data is only available in the `handle_drop` delegate.\n\nYou should always check the type of returned data before using it.\n",
+      "id": "getdata-type"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Integer"
+        },
+        "name": "getDragOperations",
+        "parameters": [],
+        "shortStr": "getDragOperations()",
+        "str": "getDragOperations()"
+      },
+      "description": "Return the drag operation supported by drag source.",
+      "detail": "Most drag sources support multiple types of operations, you should always\ncheck whether an operation is supported by using bitwise AND operator.\n",
+      "id": "getdragoperations"
+    }
+  ],
+  "id": "dragginginfo"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "DragOperation",
+  "header": "nativeui/dragging_info.h",
+  "type": "enum",
+  "namespace": "nu",
+  "description": "Operations of dragging.",
+  "detail": "The `DragOperation` are integer masks that can be operated with bitwise\noperators.\n\nThe `None` operation means dragging is not allowed, and it should not be used\ntogether with other operations.\n\nThis type is an `enum` with following values:\n\n* `DRAG_OPERATION_NONE`\n* `DRAG_OPERATION_COPY`\n* `DRAG_OPERATION_MOVE`\n* `DRAG_OPERATION_LINK`\n",
+  "id": "dragoperation"
+}
