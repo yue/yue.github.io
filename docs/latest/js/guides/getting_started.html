@@ -105,7 +105,7 @@ instead of window menu bars, so your code should be aware of this difference.</p
       {
         <span class="hljs-attr">label</span>: <span class="hljs-string">'Quit'</span>,
         <span class="hljs-attr">accelerator</span>: <span class="hljs-string">'CmdOrCtrl+Q'</span>,
-        <span class="hljs-attr">onClick</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> gui.messageLoop.quit()
+        <span class="hljs-attr">onClick</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> gui.MessageLoop.quit()
       },
     ],
   },
@@ -200,7 +200,7 @@ get inputs from users.</p>
 event, you can call the <code>connect()</code> method of the event, or simply do an
 assignment.</p>
 <pre><code class="lang-js"><span class="hljs-comment">// Quit when window is closed.</span>
-win.onClose = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> gui.messageLoop.quit()
+win.onClose = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> gui.MessageLoop.quit()
 <span class="hljs-comment">// The size of content view.</span>
 win.setContentSize({<span class="hljs-attr">width</span>: <span class="hljs-number">400</span>, <span class="hljs-attr">height</span>: <span class="hljs-number">400</span>})
 <span class="hljs-comment">// Put the window in the center of screen.</span>
