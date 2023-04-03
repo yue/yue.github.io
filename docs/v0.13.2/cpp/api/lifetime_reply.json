@@ -1,0 +1,19 @@
+{
+  "name": "Lifetime::Reply",
+  "header": "nativeui/lifetime.h",
+  "type": "enum class",
+  "namespace": "nu",
+  "description": "Return type of `<!name>open_files`.",
+  "enums": [
+    {
+      "name": "Lifetime::Reply::Success"
+    },
+    {
+      "name": "Lifetime::Reply::Cancel"
+    },
+    {
+      "name": "Lifetime::Reply::Failure"
+    }
+  ],
+  "id": "lifetime_reply"
+}
