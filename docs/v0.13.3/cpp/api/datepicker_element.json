@@ -1,0 +1,12 @@
+{
+  "name": "DatePicker::Element",
+  "lang": [
+    "cpp"
+  ],
+  "header": "nativeui/file_dialog.h",
+  "type": "enum",
+  "namespace": "nu",
+  "description": "The DatePicker element masks.",
+  "detail": "`DatePicker::Element` is an `enum` with following values:\n\n* `ELEMENT_YEAR_MONTH`\n* `ELEMENT_YEAR_MONTH_DAY`\n* `ELEMENT_HOUR_MINUTE`\n* `ELEMENT_HOUR_MINUTE_SECOND`\n",
+  "id": "datepicker_element"
+}
