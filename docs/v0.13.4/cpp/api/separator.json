@@ -1,0 +1,43 @@
+{
+  "name": "Separator",
+  "component": "gui",
+  "header": "nativeui/separator.h",
+  "type": "refcounted",
+  "namespace": "nu",
+  "inherit": {
+    "name": "View",
+    "id": "view"
+  },
+  "description": "A horizontal or vertical line.",
+  "constructors": [
+    {
+      "signature": {
+        "name": "Separator",
+        "parameters": [
+          {
+            "type": {
+              "name": "Orientation",
+              "id": "orientation"
+            },
+            "name": "orientation"
+          }
+        ],
+        "shortStr": "Separator(orientation)",
+        "str": "Separator(Orientation orientation)"
+      },
+      "description": "Create a new `Separator` with `orientation`.",
+      "id": "separator-orientation"
+    }
+  ],
+  "class_properties": [
+    {
+      "description": "The class name of this view.",
+      "id": "kclassname",
+      "type": {
+        "name": "const char*"
+      },
+      "name": "kClassName"
+    }
+  ],
+  "id": "separator"
+}

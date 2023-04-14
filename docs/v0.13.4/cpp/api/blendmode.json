@@ -1,0 +1,85 @@
+{
+  "name": "BlendMode",
+  "header": "nativeui/painter.h",
+  "type": "enum class",
+  "namespace": "nu",
+  "description": "Compositing operations.",
+  "enums": [
+    {
+      "name": "BlendMode::Normal"
+    },
+    {
+      "name": "BlendMode::Multiply"
+    },
+    {
+      "name": "BlendMode::Screen"
+    },
+    {
+      "name": "BlendMode::Overlay"
+    },
+    {
+      "name": "BlendMode::Darken"
+    },
+    {
+      "name": "BlendMode::Lighten"
+    },
+    {
+      "name": "BlendMode::ColorDodge"
+    },
+    {
+      "name": "BlendMode::ColorBurn"
+    },
+    {
+      "name": "BlendMode::SoftLight"
+    },
+    {
+      "name": "BlendMode::HardLight"
+    },
+    {
+      "name": "BlendMode::Difference"
+    },
+    {
+      "name": "BlendMode::Exclusion"
+    },
+    {
+      "name": "BlendMode::Hue"
+    },
+    {
+      "name": "BlendMode::Saturation"
+    },
+    {
+      "name": "BlendMode::Color"
+    },
+    {
+      "name": "BlendMode::Luminosity"
+    },
+    {
+      "name": "BlendMode::Clear"
+    },
+    {
+      "name": "BlendMode::Copy"
+    },
+    {
+      "name": "BlendMode::SourceIn"
+    },
+    {
+      "name": "BlendMode::SourceOut"
+    },
+    {
+      "name": "BlendMode::SourceAtop"
+    },
+    {
+      "name": "BlendMode::DestinationOver"
+    },
+    {
+      "name": "BlendMode::DestinationIn"
+    },
+    {
+      "name": "BlendMode::DestinationAtop"
+    },
+    {
+      "name": "BlendMode::Xor"
+    }
+  ],
+  "id": "blendmode"
+}
