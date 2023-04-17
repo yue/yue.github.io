@@ -1,0 +1,22 @@
+{
+  "name": "Toolbar::DisplayMode",
+  "header": "nativeui/toolbar.h",
+  "type": "enum class",
+  "namespace": "nu",
+  "description": "Possible display modes of `Toolbar`.",
+  "enums": [
+    {
+      "name": "Toolbar::DisplayMode::Default"
+    },
+    {
+      "name": "Toolbar::DisplayMode::IconAndLabel"
+    },
+    {
+      "name": "Toolbar::DisplayMode::Icon"
+    },
+    {
+      "name": "Toolbar::DisplayMode::Label"
+    }
+  ],
+  "id": "toolbar_displaymode"
+}
