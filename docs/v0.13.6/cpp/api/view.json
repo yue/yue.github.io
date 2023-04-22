@@ -1,0 +1,746 @@
+{
+  "name": "View",
+  "component": "gui",
+  "header": "nativeui/view.h",
+  "type": "refcounted",
+  "namespace": "nu",
+  "inherit": {
+    "name": "Responder",
+    "id": "responder"
+  },
+  "description": "Base class for GUI components.",
+  "detail": "`View` provides methods to receive and change various style properties.\n\n`View` is a `RefCounted` type. Sub-classes of `View` can only be created on\nheap, and must be managed with `scoped_refptr`.\nEvery API that accepets `View*` will store a reference to the pointer, so it\nis safe to pass a newly created raw pointer to public APIs.\n\n```cpp\nscoped_refptr<nu::Container> container = new nu::Container;\ncontainer->AddChildView(new nu::Label(\"child\"));\n```\n",
+  "methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "Vector2dF",
+          "id": "vector2df"
+        },
+        "name": "OffsetFromView",
+        "parameters": [
+          {
+            "type": {
+              "name": "const View*",
+              "id": "view"
+            },
+            "name": "view"
+          }
+        ],
+        "shortStr": "OffsetFromView(view)",
+        "str": "Vector2dF OffsetFromView(const View* view) const"
+      },
+      "description": "Return offset from `view`.",
+      "id": "offsetfromview-view"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Vector2dF",
+          "id": "vector2df"
+        },
+        "name": "OffsetFromWindow",
+        "parameters": [],
+        "shortStr": "OffsetFromWindow()",
+        "str": "Vector2dF OffsetFromWindow() const"
+      },
+      "description": "Return offset from the window that owns the view.",
+      "id": "offsetfromwindow"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "RectF",
+          "id": "rectf"
+        },
+        "name": "GetBounds",
+        "parameters": [],
+        "shortStr": "GetBounds()",
+        "str": "RectF GetBounds() const"
+      },
+      "description": "Return the position and size of the view, relative to its parent.",
+      "id": "getbounds"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "RectF",
+          "id": "rectf"
+        },
+        "name": "GetBoundsInScreen",
+        "parameters": [],
+        "shortStr": "GetBoundsInScreen()",
+        "str": "RectF GetBoundsInScreen() const"
+      },
+      "description": "Return the position and size of the view in the screen.",
+      "id": "getboundsinscreen"
+    },
+    {
+      "signature": {
+        "name": "Layout",
+        "parameters": [],
+        "shortStr": "Layout()",
+        "str": "void Layout()"
+      },
+      "description": "Make the view re-recalculate its layout.",
+      "id": "layout"
+    },
+    {
+      "signature": {
+        "name": "SchedulePaint",
+        "parameters": [],
+        "shortStr": "SchedulePaint()",
+        "str": "void SchedulePaint()"
+      },
+      "description": "Schedule to repaint the whole view.",
+      "id": "schedulepaint"
+    },
+    {
+      "signature": {
+        "name": "SchedulePaintRect",
+        "parameters": [
+          {
+            "type": {
+              "name": "const RectF&",
+              "id": "rectf"
+            },
+            "name": "rect"
+          }
+        ],
+        "shortStr": "SchedulePaintRect(rect)",
+        "str": "void SchedulePaintRect(const RectF& rect)"
+      },
+      "description": "Schedule to repaint the `rect` area in view.",
+      "id": "schedulepaintrect-rect"
+    },
+    {
+      "signature": {
+        "name": "SetVisible",
+        "parameters": [
+          {
+            "type": {
+              "name": "bool"
+            },
+            "name": "visible"
+          }
+        ],
+        "shortStr": "SetVisible(visible)",
+        "str": "void SetVisible(bool visible)"
+      },
+      "description": "Show/Hide the view.",
+      "id": "setvisible-visible"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "bool"
+        },
+        "name": "IsVisible",
+        "parameters": [],
+        "shortStr": "IsVisible()",
+        "str": "bool IsVisible() const"
+      },
+      "description": "Return whether the view is visible.",
+      "id": "isvisible"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "bool"
+        },
+        "name": "IsVisibleInHierarchy",
+        "parameters": [],
+        "shortStr": "IsVisibleInHierarchy()",
+        "str": "bool IsVisibleInHierarchy() const"
+      },
+      "description": "Return whether the view and its ancestors are visible.",
+      "id": "isvisibleinhierarchy"
+    },
+    {
+      "signature": {
+        "name": "SetEnabled",
+        "parameters": [
+          {
+            "type": {
+              "name": "bool"
+            },
+            "name": "enable"
+          }
+        ],
+        "shortStr": "SetEnabled(enable)",
+        "str": "void SetEnabled(bool enable)"
+      },
+      "description": "Set whether the view is enabled.",
+      "detail": "The enabled state of each view is not affected by its parent, disabling\na container-like view does not have any effect.\n",
+      "id": "setenabled-enable"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "bool"
+        },
+        "name": "IsEnabled",
+        "parameters": [],
+        "shortStr": "IsEnabled()",
+        "str": "bool IsEnabled() const"
+      },
+      "description": "Return whether the view is enabled.",
+      "id": "isenabled"
+    },
+    {
+      "signature": {
+        "name": "Focus",
+        "parameters": [],
+        "shortStr": "Focus()",
+        "str": "void Focus()"
+      },
+      "description": "Move the keyboard focus to the view.",
+      "id": "focus"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "bool"
+        },
+        "name": "HasFocus",
+        "parameters": [],
+        "shortStr": "HasFocus()",
+        "str": "bool HasFocus() const"
+      },
+      "description": "Return whether the view has keyboard focus.",
+      "id": "hasfocus"
+    },
+    {
+      "signature": {
+        "name": "SetFocusable",
+        "parameters": [
+          {
+            "type": {
+              "name": "bool"
+            },
+            "name": "focusable"
+          }
+        ],
+        "shortStr": "SetFocusable(focusable)",
+        "str": "void SetFocusable(bool focusable)"
+      },
+      "description": "Set whether the view can be focused on.",
+      "id": "setfocusable-focusable"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "bool"
+        },
+        "name": "IsFocusable",
+        "parameters": [],
+        "shortStr": "IsFocusable()",
+        "str": "bool IsFocusable() const"
+      },
+      "description": "Return whether the view can be focused on.",
+      "id": "isfocusable"
+    },
+    {
+      "signature": {
+        "name": "SetMouseDownCanMoveWindow",
+        "parameters": [
+          {
+            "type": {
+              "name": "bool"
+            },
+            "name": "can"
+          }
+        ],
+        "shortStr": "SetMouseDownCanMoveWindow(can)",
+        "str": "void SetMouseDownCanMoveWindow(bool can)"
+      },
+      "description": "Set whether dragging mouse would move the window.",
+      "detail": "For most platforms this method only works for frameless windows, having\nthis feature may also prevent mouse events to happen.\n\nOn macOS the `Container` view has this feature turned on by default. To\nturn this feature on for the view, the view's parent view must also has\nthis feature turned on.\n\nOn Windows the view with this feature will be treated as titlebar, e.g.\ndouble-clicking would maximize the window, right-clicking may show the\nsystem menu.\n",
+      "id": "setmousedowncanmovewindow-can"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "bool"
+        },
+        "name": "IsMouseDownCanMoveWindow",
+        "parameters": [],
+        "shortStr": "IsMouseDownCanMoveWindow()",
+        "str": "bool IsMouseDownCanMoveWindow() const"
+      },
+      "description": "Return whether dragging the view would move the window.",
+      "id": "ismousedowncanmovewindow"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "int"
+        },
+        "name": "DoDrag",
+        "parameters": [
+          {
+            "type": {
+              "name": "std::vector<Clipboard::Data>"
+            },
+            "name": "data"
+          },
+          {
+            "type": {
+              "name": "int"
+            },
+            "name": "operations"
+          }
+        ],
+        "shortStr": "DoDrag(data, operations)",
+        "str": "int DoDrag(std::vector<Clipboard::Data> data, int operations)"
+      },
+      "description": "Like `DoDragWithOptions` but do not set drag image.",
+      "id": "dodrag-data-operations"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "int"
+        },
+        "name": "DoDragWithOptions",
+        "parameters": [
+          {
+            "type": {
+              "name": "std::vector<Clipboard::Data>"
+            },
+            "name": "data",
+            "description": "An array of `<!type>Clipboard::Data` that will be passed to drop\ntarget.\n"
+          },
+          {
+            "type": {
+              "name": "int"
+            },
+            "name": "operations",
+            "description": "Must be one or more of `<!type>DragOperation` masks, indicates which\ndrag operations are supported.\n"
+          },
+          {
+            "type": {
+              "name": "const DragOptions&",
+              "id": "dragoptions"
+            },
+            "name": "options"
+          }
+        ],
+        "shortStr": "DoDragWithOptions(data, operations, options)",
+        "str": "int DoDragWithOptions(std::vector<Clipboard::Data> data, int operations, const DragOptions& options)"
+      },
+      "description": "Start a drag session.",
+      "detail": "The return value is a `<!type>DragOperation` indicating the result of\ndragging.\n\nThis method should only be called in the `on_mouse_down` event, when user\nstarts to drag the cursor.\n\nThis method is blocking that it does not return until the drag session is\nfinished or cancelled. During the call a nested UI message loop will run\nand other events will still be emitted.\n\nNote that on macOS certain views may have `IsMouseDownCanMoveWindow`\ndefaulting to `true`, which will prevent drag session to start. Make sure\nto call `SetMouseDownCanMoveWindow(false)` for drag sources.\n",
+      "id": "dodragwithoptions-data-operations-options"
+    },
+    {
+      "signature": {
+        "name": "CancelDrag",
+        "parameters": [],
+        "shortStr": "CancelDrag()",
+        "str": "void CancelDrag()"
+      },
+      "description": "Cancel current drag session if the view is being used as drag source.",
+      "id": "canceldrag"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "bool"
+        },
+        "name": "IsDragging",
+        "parameters": [],
+        "shortStr": "IsDragging()",
+        "str": "bool IsDragging() const"
+      },
+      "description": "Return whether the view is being used as drag source.",
+      "id": "isdragging"
+    },
+    {
+      "signature": {
+        "name": "RegisterDraggedTypes",
+        "parameters": [
+          {
+            "type": {
+              "name": "std::set<Clipboard::Data::Type>"
+            },
+            "name": "types",
+            "description": "An array of `<!type>Clipboard::Data::Type`."
+          }
+        ],
+        "shortStr": "RegisterDraggedTypes(types)",
+        "str": "void RegisterDraggedTypes(std::set<Clipboard::Data::Type> types)"
+      },
+      "description": "Make the view a drag destination that accepets `types`.",
+      "id": "registerdraggedtypes-types"
+    },
+    {
+      "signature": {
+        "name": "SetCursor",
+        "parameters": [
+          {
+            "type": {
+              "name": "scoped_refptr<Cursor>",
+              "id": "cursor"
+            },
+            "name": "cursor"
+          }
+        ],
+        "shortStr": "SetCursor(cursor)",
+        "str": "void SetCursor(scoped_refptr<Cursor> cursor)"
+      },
+      "description": "Set the cursor to show when hovering the view.",
+      "detail": "On Linux, setting cursor would force the view to own its own GDK window.\nFor certain views like `Label`, this may have remove the view's background\ncolor.\n",
+      "id": "setcursor-cursor"
+    },
+    {
+      "signature": {
+        "name": "SetTooltip",
+        "parameters": [
+          {
+            "type": {
+              "name": "std::string"
+            },
+            "name": "tooltip"
+          }
+        ],
+        "shortStr": "SetTooltip(tooltip)",
+        "str": "void SetTooltip(std::string tooltip)"
+      },
+      "description": "Set the `tooltip` for the view.",
+      "detail": "This method will clear all tooltips added by `<!name>AddTooltipForRect`.\n",
+      "id": "settooltip-tooltip"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "int"
+        },
+        "name": "AddTooltipForRect",
+        "parameters": [
+          {
+            "type": {
+              "name": "std::string"
+            },
+            "name": "tooltip"
+          },
+          {
+            "type": {
+              "name": "RectF",
+              "id": "rectf"
+            },
+            "name": "rect"
+          }
+        ],
+        "shortStr": "AddTooltipForRect(tooltip, rect)",
+        "str": "int AddTooltipForRect(std::string tooltip, RectF rect)"
+      },
+      "description": "Add `tooltip` for a defined `rect` in the view and return an ID for it.",
+      "id": "addtooltipforrect-tooltip-rect"
+    },
+    {
+      "signature": {
+        "name": "RemoveTooltip",
+        "parameters": [
+          {
+            "type": {
+              "name": "int"
+            },
+            "name": "id"
+          }
+        ],
+        "shortStr": "RemoveTooltip(id)",
+        "str": "void RemoveTooltip(int id)"
+      },
+      "description": "Remove tooltip added by `<!name>AddTooltipForRect` with `id`.",
+      "id": "removetooltip-id"
+    },
+    {
+      "signature": {
+        "name": "SetFont",
+        "parameters": [
+          {
+            "type": {
+              "name": "scoped_refptr<Font>",
+              "id": "font"
+            },
+            "name": "font"
+          }
+        ],
+        "shortStr": "SetFont(font)",
+        "str": "void SetFont(scoped_refptr<Font> font)"
+      },
+      "description": "Change the font used for drawing text in the view.",
+      "detail": "This methods only works for `View`s that display text, like `Label` or\n`Entry`.\n",
+      "id": "setfont-font"
+    },
+    {
+      "signature": {
+        "name": "SetColor",
+        "parameters": [
+          {
+            "type": {
+              "name": "Color",
+              "id": "color"
+            },
+            "name": "color"
+          }
+        ],
+        "shortStr": "SetColor(color)",
+        "str": "void SetColor(Color color)"
+      },
+      "description": "Change the color used for drawing text in the view.",
+      "detail": "This methods only works for `View`s that display text, like `Label` or\n`Entry`.\n",
+      "id": "setcolor-color"
+    },
+    {
+      "signature": {
+        "name": "SetBackgroundColor",
+        "parameters": [
+          {
+            "type": {
+              "name": "Color",
+              "id": "color"
+            },
+            "name": "color"
+          }
+        ],
+        "shortStr": "SetBackgroundColor(color)",
+        "str": "void SetBackgroundColor(Color color)"
+      },
+      "description": "Change the background color of the view.",
+      "id": "setbackgroundcolor-color"
+    },
+    {
+      "signature": {
+        "name": "SetStyle",
+        "parameters": [
+          {
+            "type": {
+              "name": "Args..."
+            },
+            "name": "styles",
+            "description": "Variadic parameters that are pairs of keys and values.\n"
+          }
+        ],
+        "shortStr": "SetStyle(styles)",
+        "str": "void SetStyle(Args... styles)"
+      },
+      "description": "Change the styles of the view.",
+      "detail": "Available style properties can be found at\n[Layout System](../guides/layout_system.html).\n\n```cpp\nview->SetStyle(\"flex\", 1, \"flex-direction\", \"row\");\n```\n",
+      "id": "setstyle-styles"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "std::string"
+        },
+        "name": "GetComputedLayout",
+        "parameters": [],
+        "shortStr": "GetComputedLayout()",
+        "str": "std::string GetComputedLayout() const"
+      },
+      "description": "Return string representation of the view's layout.",
+      "id": "getcomputedlayout"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "SizeF",
+          "id": "sizef"
+        },
+        "name": "GetMinimumSize",
+        "parameters": [],
+        "shortStr": "GetMinimumSize()",
+        "str": "SizeF GetMinimumSize() const"
+      },
+      "description": "Return the minimum size needed to show the view.",
+      "id": "getminimumsize"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "View*",
+          "id": "view"
+        },
+        "name": "GetParent",
+        "parameters": [],
+        "shortStr": "GetParent()",
+        "str": "View* GetParent() const"
+      },
+      "description": "Return parent view.",
+      "id": "getparent"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Window*",
+          "id": "window"
+        },
+        "name": "GetWindow",
+        "parameters": [],
+        "shortStr": "GetWindow()",
+        "str": "Window* GetWindow() const"
+      },
+      "description": "Return the window that the view belongs to.",
+      "id": "getwindow"
+    }
+  ],
+  "events": [
+    {
+      "signature": {
+        "name": "on_drag_leave",
+        "parameters": [
+          {
+            "type": {
+              "name": "View*",
+              "id": "view"
+            },
+            "name": "self"
+          },
+          {
+            "type": {
+              "name": "DraggingInfo*",
+              "id": "dragginginfo"
+            },
+            "name": "info"
+          }
+        ],
+        "shortStr": "on_drag_leave(self, info)",
+        "str": "void on_drag_leave(View* self, DraggingInfo* info)>"
+      },
+      "description": "Emitted when cursor leaves the view while dragging.",
+      "detail": "This event will also be emitted before the `handle_drop` event when user\ndrops the data on the view.\n",
+      "id": "ondragleave-self-info"
+    },
+    {
+      "signature": {
+        "name": "on_size_changed",
+        "parameters": [
+          {
+            "type": {
+              "name": "View*",
+              "id": "view"
+            },
+            "name": "self"
+          }
+        ],
+        "shortStr": "on_size_changed(self)",
+        "str": "void on_size_changed(View* self)"
+      },
+      "description": "Emitted when the view's size has been changed.",
+      "id": "onsizechanged-self"
+    }
+  ],
+  "delegates": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "int"
+        },
+        "name": "handle_drag_enter",
+        "parameters": [
+          {
+            "type": {
+              "name": "View*",
+              "id": "view"
+            },
+            "name": "self"
+          },
+          {
+            "type": {
+              "name": "DraggingInfo*",
+              "id": "dragginginfo"
+            },
+            "name": "info"
+          },
+          {
+            "type": {
+              "name": "const PointF&",
+              "id": "pointf"
+            },
+            "name": "point"
+          }
+        ],
+        "shortStr": "handle_drag_enter(self, info, point)",
+        "str": "int handle_drag_enter(View* self, DraggingInfo* info, const PointF& point)"
+      },
+      "description": "Called when user drags the cursor over the view for the first time.\n",
+      "detail": "A `<!type>DragOperation` should be returned, indicating which dragging\noperation the destination will perform when cursor is released.\n\nThis delegate will not be called if the view has not registered dragged\ntypes, or if the dragged data does not belong to the registered type.\n\nOn Linux the dragged data is not yet available when this is called, you\nshould usually only read data in the `handle_drop` delegate.\n",
+      "id": "handledragenter-self-info-point"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "int"
+        },
+        "name": "handle_drag_update",
+        "parameters": [
+          {
+            "type": {
+              "name": "View*",
+              "id": "view"
+            },
+            "name": "self"
+          },
+          {
+            "type": {
+              "name": "DraggingInfo*",
+              "id": "dragginginfo"
+            },
+            "name": "info"
+          },
+          {
+            "type": {
+              "name": "const PointF&",
+              "id": "pointf"
+            },
+            "name": "point"
+          }
+        ],
+        "shortStr": "handle_drag_update(self, info, point)",
+        "str": "int handle_drag_update(View* self, DraggingInfo* info, const PointF& point)"
+      },
+      "description": "Called when user moves the cursor over the view while dragging.\n",
+      "detail": "A `<!type>DragOperation` should be returned, indicating which dragging\noperation the destination will perform when cursor is released.\n\nIf this delegate is not implemented, the return value of previous\n`handle_drag_enter` call will be returned.\n\nThis delegate is usually used when implementing a custom view with\nmultiple dropping areas, you only need to implement `handle_drag_enter`\nfor simple tasks.\n\nOn Linux the dragged data is not yet available when this is called, you\nshould usually only read data in the `handle_drop` delegate.\n",
+      "id": "handledragupdate-self-info-point"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "bool"
+        },
+        "name": "handle_drop",
+        "parameters": [
+          {
+            "type": {
+              "name": "View*",
+              "id": "view"
+            },
+            "name": "self"
+          },
+          {
+            "type": {
+              "name": "DraggingInfo*",
+              "id": "dragginginfo"
+            },
+            "name": "info"
+          },
+          {
+            "type": {
+              "name": "const PointF&",
+              "id": "pointf"
+            },
+            "name": "point"
+          }
+        ],
+        "shortStr": "handle_drop(self, info, point)",
+        "str": "bool handle_drop(View* self, DraggingInfo* info, const PointF& point)"
+      },
+      "description": "Called when user releases the dragged data on the view.",
+      "detail": "Returning `true` will inform the drag source that the data has been\naccepted with the drag operation returned by previous `handle_drag_enter`\nor `handle_drag_update` call.\n\nIf the drag operation is `Move`, the drag source may also take actions\nto \"remove\" the data on its side.\n\nReturning `false` will inform the drag source that the drag has been\ncancelled, and operating system may display some visual effects.\n",
+      "id": "handledrop-self-info-point"
+    }
+  ],
+  "id": "view"
+}
