@@ -1,0 +1,52 @@
+{
+  "name": "Cookie",
+  "header": "nativeui/browser.h",
+  "type": "Object",
+  "namespace": "nu",
+  "description": "Browser cookie.",
+  "properties": [
+    {
+      "id": "name",
+      "type": {
+        "name": "String"
+      },
+      "name": "name"
+    },
+    {
+      "id": "value",
+      "type": {
+        "name": "String"
+      },
+      "name": "value"
+    },
+    {
+      "id": "domain",
+      "type": {
+        "name": "String"
+      },
+      "name": "domain"
+    },
+    {
+      "id": "path",
+      "type": {
+        "name": "String"
+      },
+      "name": "path"
+    },
+    {
+      "id": "httponly",
+      "type": {
+        "name": "Boolean"
+      },
+      "name": "httpOnly"
+    },
+    {
+      "id": "secure",
+      "type": {
+        "name": "Boolean"
+      },
+      "name": "secure"
+    }
+  ],
+  "id": "cookie"
+}
