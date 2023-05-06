@@ -1,0 +1,279 @@
+{
+  "name": "Responder",
+  "component": "gui",
+  "header": "nativeui/responder.h",
+  "type": "refcounted",
+  "namespace": "nu",
+  "description": "Base class of Window and View for event processing.",
+  "methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "const char*"
+        },
+        "name": "GetClassName",
+        "parameters": [],
+        "shortStr": "GetClassName()",
+        "str": "const char* GetClassName() const"
+      },
+      "description": "Return the receiving responder's class name.",
+      "detail": "A class name is a string which uniquely identifies the class. It is\nintended to be used as a way to find out during run time if a responder\ncan be safely casted to a specific subclass.\n",
+      "id": "getclassname"
+    },
+    {
+      "signature": {
+        "name": "SetCapture",
+        "parameters": [],
+        "shortStr": "SetCapture()",
+        "str": "void SetCapture()"
+      },
+      "description": "Set mouse capture to the responder.",
+      "id": "setcapture"
+    },
+    {
+      "signature": {
+        "name": "ReleaseCapture",
+        "parameters": [],
+        "shortStr": "ReleaseCapture()",
+        "str": "void ReleaseCapture()"
+      },
+      "description": "Release mouse capture if the responder has mouse capture.",
+      "id": "releasecapture"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "bool"
+        },
+        "name": "HasCapture",
+        "parameters": [],
+        "shortStr": "HasCapture()",
+        "str": "bool HasCapture() const"
+      },
+      "description": "Return whether the responder has mouse capture.",
+      "id": "hascapture"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "NativeResponder",
+          "id": "nativeresponder"
+        },
+        "name": "GetNative",
+        "parameters": [],
+        "shortStr": "GetNative()",
+        "str": "NativeResponder GetNative() const"
+      },
+      "description": "Return the native type wrapped by the responder.",
+      "id": "getnative"
+    }
+  ],
+  "events": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "bool"
+        },
+        "name": "on_mouse_down",
+        "parameters": [
+          {
+            "type": {
+              "name": "Responder*",
+              "id": "responder"
+            },
+            "name": "self"
+          },
+          {
+            "type": {
+              "name": "const MouseEvent&",
+              "id": "mouseevent"
+            },
+            "name": "event"
+          }
+        ],
+        "shortStr": "on_mouse_down(self, event)",
+        "str": "bool on_mouse_down(Responder* self, const MouseEvent& event)"
+      },
+      "description": "Emitted when pressing mouse buttons.",
+      "id": "onmousedown-self-event"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "bool"
+        },
+        "name": "on_mouse_up",
+        "parameters": [
+          {
+            "type": {
+              "name": "Responder*",
+              "id": "responder"
+            },
+            "name": "self"
+          },
+          {
+            "type": {
+              "name": "const MouseEvent&",
+              "id": "mouseevent"
+            },
+            "name": "event"
+          }
+        ],
+        "shortStr": "on_mouse_up(self, event)",
+        "str": "bool on_mouse_up(Responder* self, const MouseEvent& event)"
+      },
+      "description": "Emitted when releasing mouse buttons.",
+      "id": "onmouseup-self-event"
+    },
+    {
+      "signature": {
+        "name": "on_mouse_move",
+        "parameters": [
+          {
+            "type": {
+              "name": "Responder*",
+              "id": "responder"
+            },
+            "name": "self"
+          },
+          {
+            "type": {
+              "name": "const MouseEvent&",
+              "id": "mouseevent"
+            },
+            "name": "event"
+          }
+        ],
+        "shortStr": "on_mouse_move(self, event)",
+        "str": "void on_mouse_move(Responder* self, const MouseEvent& event)"
+      },
+      "description": "Emitted when user moves mouse in the responder.",
+      "id": "onmousemove-self-event"
+    },
+    {
+      "signature": {
+        "name": "on_mouse_enter",
+        "parameters": [
+          {
+            "type": {
+              "name": "Responder*",
+              "id": "responder"
+            },
+            "name": "self"
+          },
+          {
+            "type": {
+              "name": "const MouseEvent&",
+              "id": "mouseevent"
+            },
+            "name": "event"
+          }
+        ],
+        "shortStr": "on_mouse_enter(self, event)",
+        "str": "void on_mouse_enter(Responder* self, const MouseEvent& event)"
+      },
+      "description": "Emitted when mouse enters the responder.",
+      "id": "onmouseenter-self-event"
+    },
+    {
+      "signature": {
+        "name": "on_mouse_leave",
+        "parameters": [
+          {
+            "type": {
+              "name": "Responder*",
+              "id": "responder"
+            },
+            "name": "self"
+          },
+          {
+            "type": {
+              "name": "const MouseEvent&",
+              "id": "mouseevent"
+            },
+            "name": "event"
+          }
+        ],
+        "shortStr": "on_mouse_leave(self, event)",
+        "str": "void on_mouse_leave(Responder* self, const MouseEvent& event)"
+      },
+      "description": "Emitted when mouse leaves the responder.",
+      "id": "onmouseleave-self-event"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "bool"
+        },
+        "name": "on_key_down",
+        "parameters": [
+          {
+            "type": {
+              "name": "Responder*",
+              "id": "responder"
+            },
+            "name": "self"
+          },
+          {
+            "type": {
+              "name": "const KeyEvent&",
+              "id": "keyevent"
+            },
+            "name": "event"
+          }
+        ],
+        "shortStr": "on_key_down(self, event)",
+        "str": "bool on_key_down(Responder* self, const KeyEvent& event)"
+      },
+      "description": "Emitted when pressing keyboard.",
+      "id": "onkeydown-self-event"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "bool"
+        },
+        "name": "on_key_up",
+        "parameters": [
+          {
+            "type": {
+              "name": "Responder*",
+              "id": "responder"
+            },
+            "name": "self"
+          },
+          {
+            "type": {
+              "name": "const KeyEvent&",
+              "id": "keyevent"
+            },
+            "name": "event"
+          }
+        ],
+        "shortStr": "on_key_up(self, event)",
+        "str": "bool on_key_up(Responder* self, const KeyEvent& event)"
+      },
+      "description": "Emitted when releasing keyboard.",
+      "id": "onkeyup-self-event"
+    },
+    {
+      "signature": {
+        "name": "on_capture_lost",
+        "parameters": [
+          {
+            "type": {
+              "name": "Responder*",
+              "id": "responder"
+            },
+            "name": "self"
+          }
+        ],
+        "shortStr": "on_capture_lost(self)",
+        "str": "void on_capture_lost(Responder* self)"
+      },
+      "description": "Emitted when the mouse capture on responder has been released.",
+      "id": "oncapturelost-self"
+    }
+  ],
+  "id": "responder"
+}

@@ -1,0 +1,143 @@
+{
+  "name": "TableModel",
+  "component": "gui",
+  "header": "nativeui/table_model.h",
+  "type": "refcounted",
+  "namespace": "nu",
+  "description": "Base class for models of Table.",
+  "methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "uint32_t"
+        },
+        "name": "GetRowCount",
+        "parameters": [],
+        "shortStr": "GetRowCount()",
+        "str": "uint32_t GetRowCount() const"
+      },
+      "abstract": true,
+      "description": "Return how many rows are in the model.",
+      "detail": "\nThis is a pure virtual method, subclass must override this method.",
+      "id": "getrowcount"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "base::Value"
+        },
+        "name": "GetValue",
+        "parameters": [
+          {
+            "type": {
+              "name": "uint32_t"
+            },
+            "name": "column"
+          },
+          {
+            "type": {
+              "name": "uint32_t"
+            },
+            "name": "row"
+          }
+        ],
+        "shortStr": "GetValue(column, row)",
+        "str": "base::Value GetValue(uint32_t column, uint32_t row) const"
+      },
+      "abstract": true,
+      "description": "Return the reference to the data at `column` and `row`.",
+      "detail": "This is a pure virtual method, subclass must override this method.",
+      "id": "getvalue-column-row"
+    },
+    {
+      "signature": {
+        "name": "SetValue",
+        "parameters": [
+          {
+            "type": {
+              "name": "uint32_t"
+            },
+            "name": "column"
+          },
+          {
+            "type": {
+              "name": "uint32_t"
+            },
+            "name": "row"
+          },
+          {
+            "type": {
+              "name": "base::Value"
+            },
+            "name": "value"
+          }
+        ],
+        "shortStr": "SetValue(column, row, value)",
+        "str": "void SetValue(uint32_t column, uint32_t row, base::Value value)"
+      },
+      "abstract": true,
+      "description": "Change the `value` at `column` and `row`.",
+      "detail": "\nThis is a pure virtual method, subclass must override this method.",
+      "id": "setvalue-column-row-value"
+    },
+    {
+      "signature": {
+        "name": "NotifyRowInsertion",
+        "parameters": [
+          {
+            "type": {
+              "name": "uint32_t"
+            },
+            "name": "row"
+          }
+        ],
+        "shortStr": "NotifyRowInsertion(row)",
+        "str": "void NotifyRowInsertion(uint32_t row)"
+      },
+      "description": "Called by implementers to notify the table that a row is inserted.\n",
+      "id": "notifyrowinsertion-row"
+    },
+    {
+      "signature": {
+        "name": "NotifyRowDeletion",
+        "parameters": [
+          {
+            "type": {
+              "name": "uint32_t"
+            },
+            "name": "row"
+          }
+        ],
+        "shortStr": "NotifyRowDeletion(row)",
+        "str": "void NotifyRowDeletion(uint32_t row)"
+      },
+      "description": "Called by implementers to notify the table that a row is removed.\n",
+      "id": "notifyrowdeletion-row"
+    },
+    {
+      "signature": {
+        "name": "NotifyValueChange",
+        "parameters": [
+          {
+            "type": {
+              "name": "uint32_t"
+            },
+            "name": "column"
+          },
+          {
+            "type": {
+              "name": "uint32_t"
+            },
+            "name": "row"
+          }
+        ],
+        "shortStr": "NotifyValueChange(column, row)",
+        "str": "void NotifyValueChange(uint32_t column, uint32_t row)"
+      },
+      "description": "Called by implementers to notify the table that the value at `column` and\n`row` has been changed.\n",
+      "id": "notifyvaluechange-column-row"
+    }
+  ],
+  "detail": "\nUsers can implement a subclass of `TableModel` to feed `<!type>Table` any\nkind of data source. It is required to call the `Notify` methods in\nsubclasses when data has been changed, so the `<!type>Table` can correctly\nupdate.\n\nFor simple use cases, the `<!type>SimpleTableModel` can be used.\n",
+  "id": "tablemodel"
+}

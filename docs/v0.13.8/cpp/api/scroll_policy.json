@@ -1,0 +1,19 @@
+{
+  "name": "Scroll::Policy",
+  "header": "nativeui/scroll.h",
+  "type": "enum class",
+  "namespace": "nu",
+  "description": "Scrollbar policy.",
+  "enums": [
+    {
+      "name": "Scroll::Policy::Always"
+    },
+    {
+      "name": "Scroll::Policy::Never"
+    },
+    {
+      "name": "Scroll::Policy::Automatic"
+    }
+  ],
+  "id": "scroll_policy"
+}

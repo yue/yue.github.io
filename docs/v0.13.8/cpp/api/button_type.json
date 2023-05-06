@@ -1,0 +1,23 @@
+{
+  "name": "Button::Type",
+  "header": "nativeui/button.h",
+  "type": "enum class",
+  "namespace": "nu",
+  "description": "Represent possible `Button` types.",
+  "enums": [
+    {
+      "name": "Button::Type::Normal"
+    },
+    {
+      "name": "Button::Type::Checkbox"
+    },
+    {
+      "name": "Button::Type::Radio"
+    },
+    {
+      "name": "Button::Type::Disclosure",
+      "description": "Only available on macOS."
+    }
+  ],
+  "id": "button_type"
+}
