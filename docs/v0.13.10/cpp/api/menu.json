@@ -1,0 +1,55 @@
+{
+  "name": "Menu",
+  "component": "gui",
+  "header": "nativeui/menu.h",
+  "type": "refcounted",
+  "namespace": "nu",
+  "inherit": {
+    "name": "MenuBase",
+    "id": "menubase"
+  },
+  "description": "Popup menu.",
+  "constructors": [
+    {
+      "signature": {
+        "name": "Menu",
+        "parameters": [],
+        "shortStr": "Menu()",
+        "str": "Menu()"
+      },
+      "description": "Create a popup menu.",
+      "id": "menu"
+    }
+  ],
+  "methods": [
+    {
+      "signature": {
+        "name": "Popup",
+        "parameters": [],
+        "shortStr": "Popup()",
+        "str": "void Popup()"
+      },
+      "description": "Show the popup menu at current mouse position, this method will block\nuntil the menu is dismissed.\n",
+      "id": "popup"
+    },
+    {
+      "signature": {
+        "name": "PopupAt",
+        "parameters": [
+          {
+            "type": {
+              "name": "const PointF&",
+              "id": "pointf"
+            },
+            "name": "point"
+          }
+        ],
+        "shortStr": "PopupAt(point)",
+        "str": "void PopupAt(const PointF& point)"
+      },
+      "description": "Show the popup menu at |point|, this method will block until the menu is\ndismissed.\n",
+      "id": "popupat-point"
+    }
+  ],
+  "id": "menu"
+}
