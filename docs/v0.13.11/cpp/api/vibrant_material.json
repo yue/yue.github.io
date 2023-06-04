@@ -1,0 +1,64 @@
+{
+  "name": "Vibrant::Material",
+  "platform": [
+    "macOS"
+  ],
+  "header": "nativeui/vibrant.h",
+  "type": "enum class",
+  "namespace": "nu",
+  "description": "The material of a `Vibrant` view.",
+  "enums": [
+    {
+      "name": "Vibrant::Material::AppearanceBased"
+    },
+    {
+      "name": "Vibrant::Material::Light"
+    },
+    {
+      "name": "Vibrant::Material::Dark"
+    },
+    {
+      "name": "Vibrant::Material::Titlebar"
+    },
+    {
+      "name": "Vibrant::Material::Selection"
+    },
+    {
+      "name": "Vibrant::Material::Menu"
+    },
+    {
+      "name": "Vibrant::Material::Popover"
+    },
+    {
+      "name": "Vibrant::Material::Sidebar"
+    },
+    {
+      "name": "Vibrant::Material::HeaderView"
+    },
+    {
+      "name": "Vibrant::Material::Sheet"
+    },
+    {
+      "name": "Vibrant::Material::WindowBackground"
+    },
+    {
+      "name": "Vibrant::Material::HUDWindow"
+    },
+    {
+      "name": "Vibrant::Material::FullscreenUI"
+    },
+    {
+      "name": "Vibrant::Material::Tooltip"
+    },
+    {
+      "name": "Vibrant::Material::ContentBackground"
+    },
+    {
+      "name": "Vibrant::Material::UnderWindowBackground"
+    },
+    {
+      "name": "Vibrant::Material::UnderPageBackground"
+    }
+  ],
+  "id": "vibrant_material"
+}
