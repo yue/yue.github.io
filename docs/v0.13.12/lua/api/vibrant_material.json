@@ -1,0 +1,64 @@
+{
+  "name": "Vibrant::Material",
+  "platform": [
+    "macOS"
+  ],
+  "header": "nativeui/vibrant.h",
+  "type": "string",
+  "namespace": "nu",
+  "description": "The material of a `Vibrant` view.",
+  "enums": [
+    {
+      "name": "\"appearance-based\""
+    },
+    {
+      "name": "\"light\""
+    },
+    {
+      "name": "\"dark\""
+    },
+    {
+      "name": "\"titlebar\""
+    },
+    {
+      "name": "\"selection\""
+    },
+    {
+      "name": "\"menu\""
+    },
+    {
+      "name": "\"popover\""
+    },
+    {
+      "name": "\"sidebar\""
+    },
+    {
+      "name": "\"header-view\""
+    },
+    {
+      "name": "\"sheet\""
+    },
+    {
+      "name": "\"window-background\""
+    },
+    {
+      "name": "\"hudwindow\""
+    },
+    {
+      "name": "\"fullscreen-ui\""
+    },
+    {
+      "name": "\"tooltip\""
+    },
+    {
+      "name": "\"content-background\""
+    },
+    {
+      "name": "\"under-window-background\""
+    },
+    {
+      "name": "\"under-page-background\""
+    }
+  ],
+  "id": "vibrant_material"
+}
