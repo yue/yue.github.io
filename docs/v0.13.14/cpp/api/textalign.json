@@ -1,0 +1,19 @@
+{
+  "name": "TextAlign",
+  "header": "nativeui/gfx/text.h",
+  "type": "enum class",
+  "namespace": "nu",
+  "description": "Text alignment.",
+  "enums": [
+    {
+      "name": "TextAlign::Start"
+    },
+    {
+      "name": "TextAlign::Center"
+    },
+    {
+      "name": "TextAlign::End"
+    }
+  ],
+  "id": "textalign"
+}

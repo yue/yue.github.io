@@ -1,0 +1,449 @@
+{
+  "name": "TextEdit",
+  "component": "gui",
+  "header": "nativeui/text_edit.h",
+  "type": "Class",
+  "namespace": "nu",
+  "inherit": {
+    "name": "View",
+    "id": "view"
+  },
+  "description": "Plain text input view.",
+  "detail": "The selection range in `TextEdit` use 0-based index, the `start` and `end`\nboth start from 0, and `end` is the index of the character after the range.\n\nUsing -1 as `end` means the end of the text.\n\nThe range uses character index instead of byte index, be careful when using\nprogramming languages without Unicode support.\n",
+  "class_methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "TextEdit",
+          "id": "textedit"
+        },
+        "name": "create",
+        "parameters": [],
+        "shortStr": "create()",
+        "str": "create()"
+      },
+      "description": "Create a new `TextEdit`.",
+      "id": "create"
+    }
+  ],
+  "methods": [
+    {
+      "signature": {
+        "name": "setText",
+        "parameters": [
+          {
+            "type": {
+              "name": "String"
+            },
+            "name": "text"
+          }
+        ],
+        "shortStr": "setText(text)",
+        "str": "setText(text)"
+      },
+      "description": "Change the text in the view.",
+      "id": "settext-text"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "String"
+        },
+        "name": "getText",
+        "parameters": [],
+        "shortStr": "getText()",
+        "str": "getText()"
+      },
+      "description": "Return currently displayed text.",
+      "id": "gettext"
+    },
+    {
+      "signature": {
+        "name": "undo",
+        "parameters": [],
+        "shortStr": "undo()",
+        "str": "undo()"
+      },
+      "description": "Undo the last edit operation in the undo queue.",
+      "id": "undo"
+    },
+    {
+      "signature": {
+        "name": "canUndo",
+        "parameters": [],
+        "shortStr": "canUndo()",
+        "str": "canUndo()"
+      },
+      "description": "Return whether there are any actions in undo queue.",
+      "id": "canundo"
+    },
+    {
+      "signature": {
+        "name": "redo",
+        "parameters": [],
+        "shortStr": "redo()",
+        "str": "redo()"
+      },
+      "description": "Redo the next action in the redo queue",
+      "id": "redo"
+    },
+    {
+      "signature": {
+        "name": "canRedo",
+        "parameters": [],
+        "shortStr": "canRedo()",
+        "str": "canRedo()"
+      },
+      "description": "Return whether there are any actions in redo queue.",
+      "id": "canredo"
+    },
+    {
+      "signature": {
+        "name": "cut",
+        "parameters": [],
+        "shortStr": "cut()",
+        "str": "cut()"
+      },
+      "description": "Delete (cut) the current selection, if any, copy the deleted text to the\nclipboard.\n",
+      "id": "cut"
+    },
+    {
+      "signature": {
+        "name": "copy",
+        "parameters": [],
+        "shortStr": "copy()",
+        "str": "copy()"
+      },
+      "description": "Copy current selection to clipboard.",
+      "id": "copy"
+    },
+    {
+      "signature": {
+        "name": "paste",
+        "parameters": [],
+        "shortStr": "paste()",
+        "str": "paste()"
+      },
+      "description": "Copy the current content of the clipboard to current caret position.\n",
+      "id": "paste"
+    },
+    {
+      "signature": {
+        "name": "selectAll",
+        "parameters": [],
+        "shortStr": "selectAll()",
+        "str": "selectAll()"
+      },
+      "description": "Select all text.",
+      "id": "selectall"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "std::tuple",
+          "args": [
+            {
+              "name": "Integer"
+            },
+            {
+              "name": "Integer"
+            }
+          ],
+          "id": "std_tuple"
+        },
+        "name": "getSelectionRange",
+        "parameters": [],
+        "shortStr": "getSelectionRange()",
+        "str": "getSelectionRange()"
+      },
+      "description": "Return the start position and end position of current selection.\n\nIf nothing is selected, the cursor position will be returned as both values, ie. (0, 0).\n",
+      "id": "getselectionrange"
+    },
+    {
+      "signature": {
+        "name": "selectRange",
+        "parameters": [
+          {
+            "type": {
+              "name": "Integer"
+            },
+            "name": "start"
+          },
+          {
+            "type": {
+              "name": "Integer"
+            },
+            "name": "end"
+          }
+        ],
+        "shortStr": "selectRange(start, end)",
+        "str": "selectRange(start, end)"
+      },
+      "description": "Select text between `start` and `end` positions.",
+      "id": "selectrange-start-end"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "String"
+        },
+        "name": "getTextInRange",
+        "parameters": [
+          {
+            "type": {
+              "name": "Integer"
+            },
+            "name": "start"
+          },
+          {
+            "type": {
+              "name": "Integer"
+            },
+            "name": "end"
+          }
+        ],
+        "shortStr": "getTextInRange(start, end)",
+        "str": "getTextInRange(start, end)"
+      },
+      "description": "Return the text between `start` and `end` positions.",
+      "id": "gettextinrange-start-end"
+    },
+    {
+      "signature": {
+        "name": "insertText",
+        "parameters": [
+          {
+            "type": {
+              "name": "String"
+            },
+            "name": "text"
+          }
+        ],
+        "shortStr": "insertText(text)",
+        "str": "insertText(text)"
+      },
+      "description": "Insert `text` at current caret position.",
+      "id": "inserttext-text"
+    },
+    {
+      "signature": {
+        "name": "insertTextAt",
+        "parameters": [
+          {
+            "type": {
+              "name": "String"
+            },
+            "name": "text"
+          },
+          {
+            "type": {
+              "name": "Integer"
+            },
+            "name": "position"
+          }
+        ],
+        "shortStr": "insertTextAt(text, position)",
+        "str": "insertTextAt(text, position)"
+      },
+      "description": "Insert `text` at the `position`.",
+      "id": "inserttextat-text-position"
+    },
+    {
+      "signature": {
+        "name": "delete",
+        "parameters": [],
+        "shortStr": "delete()",
+        "str": "delete()"
+      },
+      "description": "Delete text of current selection.",
+      "id": "delete"
+    },
+    {
+      "signature": {
+        "name": "deleteRange",
+        "parameters": [
+          {
+            "type": {
+              "name": "Integer"
+            },
+            "name": "start"
+          },
+          {
+            "type": {
+              "name": "Integer"
+            },
+            "name": "end"
+          }
+        ],
+        "shortStr": "deleteRange(start, end)",
+        "str": "deleteRange(start, end)"
+      },
+      "description": "Delete text between `start` and `end` positions.",
+      "id": "deleterange-start-end"
+    },
+    {
+      "signature": {
+        "name": "setOverlayScrollbar",
+        "parameters": [
+          {
+            "type": {
+              "name": "Boolean"
+            },
+            "name": "overlay"
+          }
+        ],
+        "shortStr": "setOverlayScrollbar(overlay)",
+        "str": "setOverlayScrollbar(overlay)"
+      },
+      "platform": [
+        "macOS",
+        "linux"
+      ],
+      "description": "Set whether to use overlay scrolling.",
+      "id": "setoverlayscrollbar-overlay"
+    },
+    {
+      "signature": {
+        "name": "setScrollbarPolicy",
+        "parameters": [
+          {
+            "type": {
+              "name": "Scroll::Policy",
+              "id": "scroll_policy"
+            },
+            "name": "hpolicy",
+            "description": "Policy for horizontal scrollbar."
+          },
+          {
+            "type": {
+              "name": "Scroll::Policy",
+              "id": "scroll_policy"
+            },
+            "name": "vpolicy",
+            "description": "Policy for vertical scrollbar."
+          }
+        ],
+        "shortStr": "setScrollbarPolicy(hpolicy, vpolicy)",
+        "str": "setScrollbarPolicy(hpolicy, vpolicy)"
+      },
+      "description": "Set the policy for displaying horizontal and vertical scrollbars.\n",
+      "id": "setscrollbarpolicy-hpolicy-vpolicy"
+    },
+    {
+      "signature": {
+        "name": "setScrollElasticity",
+        "parameters": [
+          {
+            "type": {
+              "name": "Scroll::Elasticity",
+              "id": "scroll_elasticity"
+            },
+            "name": "helasticity",
+            "description": "Horizontal scroll elasticity."
+          },
+          {
+            "type": {
+              "name": "Scroll::Elasticity",
+              "id": "scroll_elasticity"
+            },
+            "name": "velasticity",
+            "description": "Vertical scroll elasticity."
+          }
+        ],
+        "shortStr": "setScrollElasticity(helasticity, velasticity)",
+        "str": "setScrollElasticity(helasticity, velasticity)"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Set horizontal and vertical scroll elasticity (bounce).\n",
+      "id": "setscrollelasticity-helasticity-velasticity"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "std::tuple",
+          "args": [
+            {
+              "name": "Scroll::Elasticity",
+              "id": "scroll_elasticity"
+            },
+            {
+              "name": "Scroll::Elasticity",
+              "id": "scroll_elasticity"
+            }
+          ],
+          "id": "std_tuple"
+        },
+        "name": "getScrollElasticity",
+        "parameters": [],
+        "shortStr": "getScrollElasticity()",
+        "str": "getScrollElasticity()"
+      },
+      "platform": [
+        "macOS"
+      ],
+      "description": "Return the horizontal and vertical scroll elasticity.\n",
+      "id": "getscrollelasticity"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "RectF",
+          "id": "rectf"
+        },
+        "name": "getTextBounds",
+        "parameters": [],
+        "shortStr": "getTextBounds()",
+        "str": "getTextBounds()"
+      },
+      "description": "Return the text extend.",
+      "id": "gettextbounds"
+    }
+  ],
+  "events": [
+    {
+      "signature": {
+        "name": "onTextChange",
+        "parameters": [
+          {
+            "type": {
+              "name": "TextEdit",
+              "id": "textedit"
+            },
+            "name": "self"
+          }
+        ],
+        "shortStr": "onTextChange(self)",
+        "str": "onTextChange(self)"
+      },
+      "description": "Emitted when user has changed text.",
+      "id": "ontextchange-self"
+    }
+  ],
+  "delegates": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "Boolean"
+        },
+        "name": "shouldInsertNewLine",
+        "parameters": [
+          {
+            "type": {
+              "name": "TextEdit",
+              "id": "textedit"
+            },
+            "name": "self"
+          }
+        ],
+        "shortStr": "shouldInsertNewLine(self)",
+        "str": "shouldInsertNewLine(self)"
+      },
+      "description": "Called when user presses `Return` to insert new line, should return\nwhether it is allowed.\n",
+      "id": "shouldinsertnewline-self"
+    }
+  ],
+  "module": "gui",
+  "id": "textedit"
+}

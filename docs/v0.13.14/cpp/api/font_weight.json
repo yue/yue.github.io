@@ -1,0 +1,37 @@
+{
+  "name": "Font::Weight",
+  "header": "nativeui/gfx/font.h",
+  "type": "enum class",
+  "namespace": "nu",
+  "description": "Represent font weights.",
+  "enums": [
+    {
+      "name": "Font::Weight::Thin"
+    },
+    {
+      "name": "Font::Weight::ExtraLight"
+    },
+    {
+      "name": "Font::Weight::Light"
+    },
+    {
+      "name": "Font::Weight::Normal"
+    },
+    {
+      "name": "Font::Weight::Medium"
+    },
+    {
+      "name": "Font::Weight::SemiBold"
+    },
+    {
+      "name": "Font::Weight::Bold"
+    },
+    {
+      "name": "Font::Weight::ExtraBold"
+    },
+    {
+      "name": "Font::Weight::Black"
+    }
+  ],
+  "id": "font_weight"
+}
