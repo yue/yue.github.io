@@ -1,0 +1,84 @@
+{
+  "name": "GlobalShortcut",
+  "component": "gui",
+  "header": "nativeui/global_shortcut.h",
+  "type": "class",
+  "singleton": true,
+  "namespace": "nu",
+  "description": "Register global keyboard shortcuts.",
+  "class_methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "GlobalShortcut*",
+          "id": "globalshortcut"
+        },
+        "name": "GetCurrent",
+        "parameters": [],
+        "shortStr": "GetCurrent()",
+        "str": "GlobalShortcut* GetCurrent()"
+      },
+      "description": "Return current GlobalShortcut instance.",
+      "id": "getcurrent"
+    }
+  ],
+  "methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "int"
+        },
+        "name": "Register",
+        "parameters": [
+          {
+            "type": {
+              "name": "const Accelerator&",
+              "id": "accelerator"
+            },
+            "name": "accelerator"
+          },
+          {
+            "type": {
+              "name": "std::function<void()>"
+            },
+            "name": "callback"
+          }
+        ],
+        "shortStr": "Register(accelerator, callback)",
+        "str": "int Register(const Accelerator& accelerator, std::function<void()> callback)"
+      },
+      "description": "Register a global keyboard shortcut that, `callback` will called when the\n`accelerator` is pressed.\n",
+      "detail": "An unsigned ID will returned on success, which can be used to undo the\nregistration. -1 will be returned on error.\n\nThis API will fail silently when the accelerator is already taken by other\napps, there is no way to know if an accelerator has already been\nregistered by other apps.\n",
+      "id": "register-accelerator-callback"
+    },
+    {
+      "signature": {
+        "name": "Unregister",
+        "parameters": [
+          {
+            "type": {
+              "name": "int"
+            },
+            "name": "id"
+          }
+        ],
+        "shortStr": "Unregister(id)",
+        "str": "void Unregister(int id)"
+      },
+      "description": "Unregister the shortcut with the `id` returned by `<!name>Register`.\n",
+      "id": "unregister-id"
+    },
+    {
+      "signature": {
+        "name": "UnregisterAll",
+        "parameters": [],
+        "shortStr": "UnregisterAll()",
+        "str": "void UnregisterAll()"
+      },
+      "description": "Unregister all shortcuts registered in this app.",
+      "id": "unregisterall"
+    }
+  ],
+  "detail": "\nThis class can not be created by user, you must create `State` first and\nthen receive an instance of `GlobalShortcut` via `GlobalShortcut::GetCurrent`.\n\n```cpp\nnu::State state;\nnu::GlobalShortcut* global_shortcut = nu::GlobalShortcut::GetCurrent();\n```\n",
+  "id": "globalshortcut"
+}

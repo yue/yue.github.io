@@ -1,0 +1,69 @@
+{
+  "name": "GlobalShortcut",
+  "component": "gui",
+  "header": "nativeui/global_shortcut.h",
+  "type": "Object",
+  "singleton": true,
+  "namespace": "nu",
+  "description": "Register global keyboard shortcuts.",
+  "methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "Integer"
+        },
+        "name": "register",
+        "parameters": [
+          {
+            "type": {
+              "name": "Accelerator",
+              "id": "accelerator"
+            },
+            "name": "accelerator"
+          },
+          {
+            "type": {
+              "name": "Function"
+            },
+            "name": "callback"
+          }
+        ],
+        "shortStr": "register(accelerator, callback)",
+        "str": "register(accelerator, callback)"
+      },
+      "description": "Register a global keyboard shortcut that, `callback` will called when the\n`accelerator` is pressed.\n",
+      "detail": "An unsigned ID will returned on success, which can be used to undo the\nregistration. -1 will be returned on error.\n\nThis API will fail silently when the accelerator is already taken by other\napps, there is no way to know if an accelerator has already been\nregistered by other apps.\n",
+      "id": "register-accelerator-callback"
+    },
+    {
+      "signature": {
+        "name": "unregister",
+        "parameters": [
+          {
+            "type": {
+              "name": "Integer"
+            },
+            "name": "id"
+          }
+        ],
+        "shortStr": "unregister(id)",
+        "str": "unregister(id)"
+      },
+      "description": "Unregister the shortcut with the `id` returned by `<!name>Register`.\n",
+      "id": "unregister-id"
+    },
+    {
+      "signature": {
+        "name": "unregisterAll",
+        "parameters": [],
+        "shortStr": "unregisterAll()",
+        "str": "unregisterAll()"
+      },
+      "description": "Unregister all shortcuts registered in this app.",
+      "id": "unregisterall"
+    }
+  ],
+  "module": "gui",
+  "detail": "\nThis class can not be created by user, you can only receive its global\ninstance from the `globalShortcut` property of the module:\n\n```js\ngui.globalShortcut.unregisterAll()\n```\n",
+  "id": "globalshortcut"
+}

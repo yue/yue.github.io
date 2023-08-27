@@ -1,0 +1,243 @@
+{
+  "name": "Image",
+  "component": "gui",
+  "header": "nativeui/gfx/image.h",
+  "type": "Class",
+  "namespace": "nu",
+  "description": "Native image.",
+  "detail": "## High DPI Image\n\nBy appending `@{scaleFactor}x` to the image's base filename, you can mark\nthe image as a high DPI image. For example an image file with filename of\n`icon@2x.png` will have scale factor of 2.\n\n## Template Image\n\nOn macOS you can mark an image as template image by putting `Template` to\nits base filename, for example `iconTemplate.png` and `iconTemplate@2x.png`.\n\nTemplate images should consist of only black and clear colors, and macOS will\nmix with other content to create best appearance. This is useful for tray\nicons and menu item icons that automatically adjust to light and dark themes.\n",
+  "class_methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "Image",
+          "id": "image"
+        },
+        "name": "createEmpty",
+        "parameters": [],
+        "shortStr": "createEmpty()",
+        "str": "createEmpty()"
+      },
+      "description": "Create an empty image.",
+      "id": "createempty"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Image",
+          "id": "image"
+        },
+        "name": "createFromPath",
+        "parameters": [
+          {
+            "type": {
+              "name": "String"
+            },
+            "name": "path"
+          }
+        ],
+        "shortStr": "createFromPath(path)",
+        "str": "createFromPath(path)"
+      },
+      "description": "Create an image by reading from `path`.",
+      "id": "createfrompath-path"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Image",
+          "id": "image"
+        },
+        "name": "createFromBuffer",
+        "parameters": [
+          {
+            "type": {
+              "name": "Buffer"
+            },
+            "name": "buffer"
+          },
+          {
+            "type": {
+              "name": "Number"
+            },
+            "name": "scaleFactor"
+          }
+        ],
+        "shortStr": "createFromBuffer(buffer, scaleFactor)",
+        "str": "createFromBuffer(buffer, scaleFactor)"
+      },
+      "description": "Create an image from `buffer` in memory, with `scale_factor`.\n",
+      "id": "createfrombuffer-buffer-scalefactor"
+    }
+  ],
+  "methods": [
+    {
+      "signature": {
+        "name": "clear",
+        "parameters": [],
+        "shortStr": "clear()",
+        "str": "clear()"
+      },
+      "description": "Make the image empty.",
+      "detail": "On Windows creating an image from filesystem path will also lock the\nfile, by calling this method the image file will be unlocked.\nThe original image file will not be modified, and APIs that accepted\nthis image will not be affected.\n",
+      "id": "clear"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Boolean"
+        },
+        "name": "isEmpty",
+        "parameters": [],
+        "shortStr": "isEmpty()",
+        "str": "isEmpty()"
+      },
+      "description": "Return whether the image has any data.",
+      "id": "isempty"
+    },
+    {
+      "signature": {
+        "name": "setTemplate",
+        "parameters": [
+          {
+            "type": {
+              "name": "Boolean"
+            },
+            "name": "is"
+          }
+        ],
+        "shortStr": "setTemplate(is)",
+        "str": "setTemplate(is)"
+      },
+      "description": "Set whether the image is a template image.",
+      "id": "settemplate-is"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Boolean"
+        },
+        "name": "isTemplate",
+        "parameters": [],
+        "shortStr": "isTemplate()",
+        "str": "isTemplate()"
+      },
+      "description": "Return whether the image is a template image.",
+      "id": "istemplate"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "SizeF",
+          "id": "sizef"
+        },
+        "name": "getSize",
+        "parameters": [],
+        "shortStr": "getSize()",
+        "str": "getSize()"
+      },
+      "description": "Return image's size in DIP.",
+      "id": "getsize"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Number"
+        },
+        "name": "getScaleFactor",
+        "parameters": [],
+        "shortStr": "getScaleFactor()",
+        "str": "getScaleFactor()"
+      },
+      "description": "Return image's scale factor.",
+      "id": "getscalefactor"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Image",
+          "id": "image"
+        },
+        "name": "tint",
+        "parameters": [
+          {
+            "type": {
+              "name": "Color",
+              "id": "color"
+            },
+            "name": "color"
+          }
+        ],
+        "shortStr": "tint(color)",
+        "str": "tint(color)"
+      },
+      "description": "Return a new image that has tint color applied.",
+      "detail": "On Windows the tint color is applied by using color matrix, while other\nplatforms use `<!enum class>SourceAtop` blend mode. So the result image\nmight very likely look different on Windows.\n",
+      "id": "tint-color"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Image",
+          "id": "image"
+        },
+        "name": "resize",
+        "parameters": [
+          {
+            "type": {
+              "name": "SizeF",
+              "id": "sizef"
+            },
+            "name": "newSize"
+          },
+          {
+            "type": {
+              "name": "Number"
+            },
+            "name": "scaleFactor"
+          }
+        ],
+        "shortStr": "resize(newSize, scaleFactor)",
+        "str": "resize(newSize, scaleFactor)"
+      },
+      "description": "Return a new image resized to `new_size` with `scale_factor`.",
+      "id": "resize-newsize-scalefactor"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Buffer"
+        },
+        "name": "toPNG",
+        "parameters": [],
+        "shortStr": "toPNG()",
+        "str": "toPNG()"
+      },
+      "description": "Return a buffer containing the image's PNG encoded data.",
+      "id": "topng"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Buffer"
+        },
+        "name": "toJPEG",
+        "parameters": [
+          {
+            "type": {
+              "name": "Integer"
+            },
+            "name": "quality",
+            "description": "Between 1-100."
+          }
+        ],
+        "shortStr": "toJPEG(quality)",
+        "str": "toJPEG(quality)"
+      },
+      "description": "Return a buffer containing the image's JPEG encoded data.",
+      "id": "tojpeg-quality"
+    }
+  ],
+  "module": "gui",
+  "id": "image"
+}

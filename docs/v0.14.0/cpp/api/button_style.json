@@ -1,0 +1,55 @@
+{
+  "name": "Button::Style",
+  "header": "nativeui/button.h",
+  "type": "enum class",
+  "namespace": "nu",
+  "description": "Represent visual types of `Button`.",
+  "enums": [
+    {
+      "name": "Button::Style::Rounded"
+    },
+    {
+      "name": "Button::Style::RegularSquare"
+    },
+    {
+      "name": "Button::Style::ThickSquare"
+    },
+    {
+      "name": "Button::Style::ThickerSquare"
+    },
+    {
+      "name": "Button::Style::Disclosure"
+    },
+    {
+      "name": "Button::Style::ShadowlessSquare"
+    },
+    {
+      "name": "Button::Style::Circular"
+    },
+    {
+      "name": "Button::Style::TexturedSquare"
+    },
+    {
+      "name": "Button::Style::HelpButton"
+    },
+    {
+      "name": "Button::Style::SmallSquare"
+    },
+    {
+      "name": "Button::Style::TexturedRounded"
+    },
+    {
+      "name": "Button::Style::RoundRect"
+    },
+    {
+      "name": "Button::Style::Recessed"
+    },
+    {
+      "name": "Button::Style::RoundedDisclosure"
+    },
+    {
+      "name": "Button::Style::Inline"
+    }
+  ],
+  "id": "button_style"
+}
