@@ -1,0 +1,46 @@
+{
+  "name": "Cursor::Type",
+  "header": "nativeui/cursor.h",
+  "type": "enum class",
+  "namespace": "nu",
+  "description": "Type of cursor.",
+  "enums": [
+    {
+      "name": "Cursor::Type::Default"
+    },
+    {
+      "name": "Cursor::Type::Hand"
+    },
+    {
+      "name": "Cursor::Type::Crosshair"
+    },
+    {
+      "name": "Cursor::Type::Progress"
+    },
+    {
+      "name": "Cursor::Type::Text"
+    },
+    {
+      "name": "Cursor::Type::NotAllowed"
+    },
+    {
+      "name": "Cursor::Type::Help"
+    },
+    {
+      "name": "Cursor::Type::Move"
+    },
+    {
+      "name": "Cursor::Type::ResizeEW"
+    },
+    {
+      "name": "Cursor::Type::ResizeNS"
+    },
+    {
+      "name": "Cursor::Type::ResizeNESW"
+    },
+    {
+      "name": "Cursor::Type::ResizeNWSE"
+    }
+  ],
+  "id": "cursor_type"
+}
