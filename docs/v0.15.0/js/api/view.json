@@ -1,0 +1,801 @@
+{
+  "name": "View",
+  "component": "gui",
+  "header": "nativeui/view.h",
+  "type": "Class",
+  "namespace": "nu",
+  "inherit": {
+    "name": "Responder",
+    "id": "responder"
+  },
+  "description": "Base class for GUI components.",
+  "detail": "`View` provides methods to receive and change various style properties.\n",
+  "methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "Vector2dF",
+          "id": "vector2df"
+        },
+        "name": "offsetFromView",
+        "parameters": [
+          {
+            "type": {
+              "name": "View",
+              "id": "view"
+            },
+            "name": "view"
+          }
+        ],
+        "shortStr": "offsetFromView(view)",
+        "str": "offsetFromView(view)"
+      },
+      "description": "Return offset from `view`.",
+      "id": "offsetfromview-view"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Vector2dF",
+          "id": "vector2df"
+        },
+        "name": "offsetFromWindow",
+        "parameters": [],
+        "shortStr": "offsetFromWindow()",
+        "str": "offsetFromWindow()"
+      },
+      "description": "Return offset from the window that owns the view.",
+      "id": "offsetfromwindow"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "RectF",
+          "id": "rectf"
+        },
+        "name": "getBounds",
+        "parameters": [],
+        "shortStr": "getBounds()",
+        "str": "getBounds()"
+      },
+      "description": "Return the position and size of the view, relative to its parent.",
+      "id": "getbounds"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "RectF",
+          "id": "rectf"
+        },
+        "name": "getBoundsInScreen",
+        "parameters": [],
+        "shortStr": "getBoundsInScreen()",
+        "str": "getBoundsInScreen()"
+      },
+      "description": "Return the position and size of the view in the screen.",
+      "id": "getboundsinscreen"
+    },
+    {
+      "signature": {
+        "name": "layout",
+        "parameters": [],
+        "shortStr": "layout()",
+        "str": "layout()"
+      },
+      "description": "Make the view re-recalculate its layout.",
+      "id": "layout"
+    },
+    {
+      "signature": {
+        "name": "schedulePaint",
+        "parameters": [],
+        "shortStr": "schedulePaint()",
+        "str": "schedulePaint()"
+      },
+      "description": "Schedule to repaint the whole view.",
+      "id": "schedulepaint"
+    },
+    {
+      "signature": {
+        "name": "schedulePaintRect",
+        "parameters": [
+          {
+            "type": {
+              "name": "RectF",
+              "id": "rectf"
+            },
+            "name": "rect"
+          }
+        ],
+        "shortStr": "schedulePaintRect(rect)",
+        "str": "schedulePaintRect(rect)"
+      },
+      "description": "Schedule to repaint the `rect` area in view.",
+      "id": "schedulepaintrect-rect"
+    },
+    {
+      "signature": {
+        "name": "setVisible",
+        "parameters": [
+          {
+            "type": {
+              "name": "Boolean"
+            },
+            "name": "visible"
+          }
+        ],
+        "shortStr": "setVisible(visible)",
+        "str": "setVisible(visible)"
+      },
+      "description": "Show/Hide the view.",
+      "id": "setvisible-visible"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Boolean"
+        },
+        "name": "isVisible",
+        "parameters": [],
+        "shortStr": "isVisible()",
+        "str": "isVisible()"
+      },
+      "description": "Return whether the view is visible.",
+      "id": "isvisible"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Boolean"
+        },
+        "name": "isVisibleInHierarchy",
+        "parameters": [],
+        "shortStr": "isVisibleInHierarchy()",
+        "str": "isVisibleInHierarchy()"
+      },
+      "description": "Return whether the view and its ancestors are visible.",
+      "id": "isvisibleinhierarchy"
+    },
+    {
+      "signature": {
+        "name": "setEnabled",
+        "parameters": [
+          {
+            "type": {
+              "name": "Boolean"
+            },
+            "name": "enable"
+          }
+        ],
+        "shortStr": "setEnabled(enable)",
+        "str": "setEnabled(enable)"
+      },
+      "description": "Set whether the view is enabled.",
+      "detail": "The enabled state of each view is not affected by its parent, disabling\na container-like view does not have any effect.\n",
+      "id": "setenabled-enable"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Boolean"
+        },
+        "name": "isEnabled",
+        "parameters": [],
+        "shortStr": "isEnabled()",
+        "str": "isEnabled()"
+      },
+      "description": "Return whether the view is enabled.",
+      "id": "isenabled"
+    },
+    {
+      "signature": {
+        "name": "focus",
+        "parameters": [],
+        "shortStr": "focus()",
+        "str": "focus()"
+      },
+      "description": "Move the keyboard focus to the view.",
+      "id": "focus"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Boolean"
+        },
+        "name": "hasFocus",
+        "parameters": [],
+        "shortStr": "hasFocus()",
+        "str": "hasFocus()"
+      },
+      "description": "Return whether the view has keyboard focus.",
+      "id": "hasfocus"
+    },
+    {
+      "signature": {
+        "name": "setFocusable",
+        "parameters": [
+          {
+            "type": {
+              "name": "Boolean"
+            },
+            "name": "focusable"
+          }
+        ],
+        "shortStr": "setFocusable(focusable)",
+        "str": "setFocusable(focusable)"
+      },
+      "description": "Set whether the view can be focused on.",
+      "id": "setfocusable-focusable"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Boolean"
+        },
+        "name": "isFocusable",
+        "parameters": [],
+        "shortStr": "isFocusable()",
+        "str": "isFocusable()"
+      },
+      "description": "Return whether the view can be focused on.",
+      "id": "isfocusable"
+    },
+    {
+      "signature": {
+        "name": "setMouseDownCanMoveWindow",
+        "parameters": [
+          {
+            "type": {
+              "name": "Boolean"
+            },
+            "name": "can"
+          }
+        ],
+        "shortStr": "setMouseDownCanMoveWindow(can)",
+        "str": "setMouseDownCanMoveWindow(can)"
+      },
+      "description": "Set whether dragging mouse would move the window.",
+      "detail": "For most platforms this method only works for frameless windows, having\nthis feature may also prevent mouse events to happen.\n\nOn macOS the `Container` view has this feature turned on by default. To\nturn this feature on for the view, the view's parent view must also has\nthis feature turned on.\n\nOn Windows the view with this feature will be treated as titlebar, e.g.\ndouble-clicking would maximize the window, right-clicking may show the\nsystem menu.\n",
+      "id": "setmousedowncanmovewindow-can"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Boolean"
+        },
+        "name": "isMouseDownCanMoveWindow",
+        "parameters": [],
+        "shortStr": "isMouseDownCanMoveWindow()",
+        "str": "isMouseDownCanMoveWindow()"
+      },
+      "description": "Return whether dragging the view would move the window.",
+      "id": "ismousedowncanmovewindow"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Integer"
+        },
+        "name": "doDrag",
+        "parameters": [
+          {
+            "type": {
+              "name": "Array",
+              "elementType": {
+                "name": "Clipboard::Data",
+                "id": "clipboard_data"
+              }
+            },
+            "name": "data"
+          },
+          {
+            "type": {
+              "name": "Integer"
+            },
+            "name": "operations"
+          }
+        ],
+        "shortStr": "doDrag(data, operations)",
+        "str": "doDrag(data, operations)"
+      },
+      "description": "Like `DoDragWithOptions` but do not set drag image.",
+      "id": "dodrag-data-operations"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Integer"
+        },
+        "name": "doDragWithOptions",
+        "parameters": [
+          {
+            "type": {
+              "name": "Array",
+              "elementType": {
+                "name": "Clipboard::Data",
+                "id": "clipboard_data"
+              }
+            },
+            "name": "data",
+            "description": "An array of `<!type>Clipboard::Data` that will be passed to drop\ntarget.\n"
+          },
+          {
+            "type": {
+              "name": "Integer"
+            },
+            "name": "operations",
+            "description": "Must be one or more of `<!type>DragOperation` masks, indicates which\ndrag operations are supported.\n"
+          },
+          {
+            "type": {
+              "name": "DragOptions",
+              "id": "dragoptions"
+            },
+            "name": "options"
+          }
+        ],
+        "shortStr": "doDragWithOptions(data, operations, options)",
+        "str": "doDragWithOptions(data, operations, options)"
+      },
+      "description": "Start a drag session.",
+      "detail": "The return value is a `<!type>DragOperation` indicating the result of\ndragging.\n\nThis method should only be called in the `on_mouse_down` event, when user\nstarts to drag the cursor.\n\nThis method is blocking that it does not return until the drag session is\nfinished or cancelled. During the call a nested UI message loop will run\nand other events will still be emitted.\n\nNote that on macOS certain views may have `IsMouseDownCanMoveWindow`\ndefaulting to `true`, which will prevent drag session to start. Make sure\nto call `SetMouseDownCanMoveWindow(false)` for drag sources.\n",
+      "id": "dodragwithoptions-data-operations-options"
+    },
+    {
+      "signature": {
+        "name": "cancelDrag",
+        "parameters": [],
+        "shortStr": "cancelDrag()",
+        "str": "cancelDrag()"
+      },
+      "description": "Cancel current drag session if the view is being used as drag source.",
+      "id": "canceldrag"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Boolean"
+        },
+        "name": "isDragging",
+        "parameters": [],
+        "shortStr": "isDragging()",
+        "str": "isDragging()"
+      },
+      "description": "Return whether the view is being used as drag source.",
+      "id": "isdragging"
+    },
+    {
+      "signature": {
+        "name": "registerDraggedTypes",
+        "parameters": [
+          {
+            "type": {
+              "name": "Array",
+              "elementType": {
+                "name": "Clipboard::Data::Type",
+                "id": "clipboard_data_type"
+              }
+            },
+            "name": "types",
+            "description": "An array of `<!type>Clipboard::Data::Type`."
+          }
+        ],
+        "shortStr": "registerDraggedTypes(types)",
+        "str": "registerDraggedTypes(types)"
+      },
+      "description": "Make the view a drag destination that accepets `types`.",
+      "id": "registerdraggedtypes-types"
+    },
+    {
+      "signature": {
+        "name": "setCursor",
+        "parameters": [
+          {
+            "type": {
+              "name": "Cursor",
+              "id": "cursor"
+            },
+            "name": "cursor"
+          }
+        ],
+        "shortStr": "setCursor(cursor)",
+        "str": "setCursor(cursor)"
+      },
+      "description": "Set the cursor to show when hovering the view.",
+      "detail": "On Linux, setting cursor would force the view to own its own GDK window.\nFor certain views like `Label`, this may have remove the view's background\ncolor.\n",
+      "id": "setcursor-cursor"
+    },
+    {
+      "signature": {
+        "name": "setTooltip",
+        "parameters": [
+          {
+            "type": {
+              "name": "String"
+            },
+            "name": "tooltip"
+          }
+        ],
+        "shortStr": "setTooltip(tooltip)",
+        "str": "setTooltip(tooltip)"
+      },
+      "description": "Set the `tooltip` for the view.",
+      "detail": "This method will clear all tooltips added by `<!name>AddTooltipForRect`.\n",
+      "id": "settooltip-tooltip"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Integer"
+        },
+        "name": "addTooltipForRect",
+        "parameters": [
+          {
+            "type": {
+              "name": "String"
+            },
+            "name": "tooltip"
+          },
+          {
+            "type": {
+              "name": "RectF",
+              "id": "rectf"
+            },
+            "name": "rect"
+          }
+        ],
+        "shortStr": "addTooltipForRect(tooltip, rect)",
+        "str": "addTooltipForRect(tooltip, rect)"
+      },
+      "description": "Add `tooltip` for a defined `rect` in the view and return an ID for it.",
+      "id": "addtooltipforrect-tooltip-rect"
+    },
+    {
+      "signature": {
+        "name": "removeTooltip",
+        "parameters": [
+          {
+            "type": {
+              "name": "Integer"
+            },
+            "name": "id"
+          }
+        ],
+        "shortStr": "removeTooltip(id)",
+        "str": "removeTooltip(id)"
+      },
+      "description": "Remove tooltip added by `<!name>AddTooltipForRect` with `id`.",
+      "id": "removetooltip-id"
+    },
+    {
+      "signature": {
+        "name": "setFont",
+        "parameters": [
+          {
+            "type": {
+              "name": "Font",
+              "id": "font"
+            },
+            "name": "font"
+          }
+        ],
+        "shortStr": "setFont(font)",
+        "str": "setFont(font)"
+      },
+      "description": "Change the font used for drawing text in the view.",
+      "detail": "This methods only works for `View`s that display text, like `Label` or\n`Entry`.\n",
+      "id": "setfont-font"
+    },
+    {
+      "signature": {
+        "name": "setColor",
+        "parameters": [
+          {
+            "type": {
+              "name": "Color",
+              "id": "color"
+            },
+            "name": "color"
+          }
+        ],
+        "shortStr": "setColor(color)",
+        "str": "setColor(color)"
+      },
+      "description": "Change the color used for drawing text in the view.",
+      "detail": "This methods only works for `View`s that display text, like `Label` or\n`Entry`.\n",
+      "id": "setcolor-color"
+    },
+    {
+      "signature": {
+        "name": "setBackgroundColor",
+        "parameters": [
+          {
+            "type": {
+              "name": "Color",
+              "id": "color"
+            },
+            "name": "color"
+          }
+        ],
+        "shortStr": "setBackgroundColor(color)",
+        "str": "setBackgroundColor(color)"
+      },
+      "description": "Change the background color of the view.",
+      "id": "setbackgroundcolor-color"
+    },
+    {
+      "signature": {
+        "name": "setStyle",
+        "parameters": [
+          {
+            "type": {
+              "name": "Object"
+            },
+            "name": "styles",
+            "description": "A key-value dictionary that defines the name and value of the style\nproperties, key must be string, and value must be either string or\nnumber.\n"
+          }
+        ],
+        "shortStr": "setStyle(styles)",
+        "str": "setStyle(styles)"
+      },
+      "description": "Change the styles of the view.",
+      "detail": "Available style properties can be found at\n[Layout System](../guides/layout_system.html).\n",
+      "id": "setstyle-styles"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "String"
+        },
+        "name": "getComputedLayout",
+        "parameters": [],
+        "shortStr": "getComputedLayout()",
+        "str": "getComputedLayout()"
+      },
+      "description": "Return string representation of the view's layout.",
+      "id": "getcomputedlayout"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "SizeF",
+          "id": "sizef"
+        },
+        "name": "getMinimumSize",
+        "parameters": [],
+        "shortStr": "getMinimumSize()",
+        "str": "getMinimumSize()"
+      },
+      "description": "Return the minimum size needed to show the view.",
+      "id": "getminimumsize"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "View",
+          "id": "view"
+        },
+        "name": "getParent",
+        "parameters": [],
+        "shortStr": "getParent()",
+        "str": "getParent()"
+      },
+      "description": "Return parent view.",
+      "id": "getparent"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Window",
+          "id": "window"
+        },
+        "name": "getWindow",
+        "parameters": [],
+        "shortStr": "getWindow()",
+        "str": "getWindow()"
+      },
+      "description": "Return the window that the view belongs to.",
+      "id": "getwindow"
+    }
+  ],
+  "events": [
+    {
+      "signature": {
+        "name": "onDragLeave",
+        "parameters": [
+          {
+            "type": {
+              "name": "View",
+              "id": "view"
+            },
+            "name": "self"
+          },
+          {
+            "type": {
+              "name": "DraggingInfo",
+              "id": "dragginginfo"
+            },
+            "name": "info"
+          }
+        ],
+        "shortStr": "onDragLeave(self, info)",
+        "str": "onDragLeave(self, info)"
+      },
+      "description": "Emitted when cursor leaves the view while dragging.",
+      "detail": "This event will also be emitted before the `handle_drop` event when user\ndrops the data on the view.\n",
+      "id": "ondragleave-self-info"
+    },
+    {
+      "signature": {
+        "name": "onSizeChanged",
+        "parameters": [
+          {
+            "type": {
+              "name": "View",
+              "id": "view"
+            },
+            "name": "self"
+          }
+        ],
+        "shortStr": "onSizeChanged(self)",
+        "str": "onSizeChanged(self)"
+      },
+      "description": "Emitted when the view's size has been changed.",
+      "id": "onsizechanged-self"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Boolean"
+        },
+        "name": "onFocusIn",
+        "parameters": [
+          {
+            "type": {
+              "name": "View",
+              "id": "view"
+            },
+            "name": "self"
+          }
+        ],
+        "shortStr": "onFocusIn(self)",
+        "str": "onFocusIn(self)"
+      },
+      "description": "Emitted when the view gets keyboard focus.",
+      "id": "onfocusin-self"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Boolean"
+        },
+        "name": "onFocusOut",
+        "parameters": [
+          {
+            "type": {
+              "name": "View",
+              "id": "view"
+            },
+            "name": "self"
+          }
+        ],
+        "shortStr": "onFocusOut(self)",
+        "str": "onFocusOut(self)"
+      },
+      "description": "Emitted when the view loses keyboard focus.",
+      "id": "onfocusout-self"
+    }
+  ],
+  "delegates": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "Integer"
+        },
+        "name": "handleDragEnter",
+        "parameters": [
+          {
+            "type": {
+              "name": "View",
+              "id": "view"
+            },
+            "name": "self"
+          },
+          {
+            "type": {
+              "name": "DraggingInfo",
+              "id": "dragginginfo"
+            },
+            "name": "info"
+          },
+          {
+            "type": {
+              "name": "PointF",
+              "id": "pointf"
+            },
+            "name": "point"
+          }
+        ],
+        "shortStr": "handleDragEnter(self, info, point)",
+        "str": "handleDragEnter(self, info, point)"
+      },
+      "description": "Called when user drags the cursor over the view for the first time.\n",
+      "detail": "A `<!type>DragOperation` should be returned, indicating which dragging\noperation the destination will perform when cursor is released.\n\nThis delegate will not be called if the view has not registered dragged\ntypes, or if the dragged data does not belong to the registered type.\n\nOn Linux the dragged data is not yet available when this is called, you\nshould usually only read data in the `handle_drop` delegate.\n",
+      "id": "handledragenter-self-info-point"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Integer"
+        },
+        "name": "handleDragUpdate",
+        "parameters": [
+          {
+            "type": {
+              "name": "View",
+              "id": "view"
+            },
+            "name": "self"
+          },
+          {
+            "type": {
+              "name": "DraggingInfo",
+              "id": "dragginginfo"
+            },
+            "name": "info"
+          },
+          {
+            "type": {
+              "name": "PointF",
+              "id": "pointf"
+            },
+            "name": "point"
+          }
+        ],
+        "shortStr": "handleDragUpdate(self, info, point)",
+        "str": "handleDragUpdate(self, info, point)"
+      },
+      "description": "Called when user moves the cursor over the view while dragging.\n",
+      "detail": "A `<!type>DragOperation` should be returned, indicating which dragging\noperation the destination will perform when cursor is released.\n\nIf this delegate is not implemented, the return value of previous\n`handle_drag_enter` call will be returned.\n\nThis delegate is usually used when implementing a custom view with\nmultiple dropping areas, you only need to implement `handle_drag_enter`\nfor simple tasks.\n\nOn Linux the dragged data is not yet available when this is called, you\nshould usually only read data in the `handle_drop` delegate.\n",
+      "id": "handledragupdate-self-info-point"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "Boolean"
+        },
+        "name": "handleDrop",
+        "parameters": [
+          {
+            "type": {
+              "name": "View",
+              "id": "view"
+            },
+            "name": "self"
+          },
+          {
+            "type": {
+              "name": "DraggingInfo",
+              "id": "dragginginfo"
+            },
+            "name": "info"
+          },
+          {
+            "type": {
+              "name": "PointF",
+              "id": "pointf"
+            },
+            "name": "point"
+          }
+        ],
+        "shortStr": "handleDrop(self, info, point)",
+        "str": "handleDrop(self, info, point)"
+      },
+      "description": "Called when user releases the dragged data on the view.",
+      "detail": "Returning `true` will inform the drag source that the data has been\naccepted with the drag operation returned by previous `handle_drag_enter`\nor `handle_drag_update` call.\n\nIf the drag operation is `Move`, the drag source may also take actions\nto \"remove\" the data on its side.\n\nReturning `false` will inform the drag source that the drag has been\ncancelled, and operating system may display some visual effects.\n",
+      "id": "handledrop-self-info-point"
+    }
+  ],
+  "module": "gui",
+  "id": "view"
+}

@@ -1,0 +1,97 @@
+{
+  "name": "MessageLoop",
+  "component": "gui",
+  "header": "nativeui/message_loop.h",
+  "type": "class",
+  "namespace": "nu",
+  "description": "Post events to main GUI message loop.",
+  "detail": "Depending on the runtime you use, Yue may or may not provide this API.\n\nNote that `MessageLoop` is a class instead of an instance, the APIs are\nprovided as class methods. This is because the `MessageLoop` does not manage\nmessage loop, it just provides wrappers of system GUI message loop APIs.\n\nIf you are using Yue in an environment that does not have its own event\nloop, you should use this API to enter message loop.\n\n```cpp\nnu::MessageLoop::Run();\n```\n",
+  "class_methods": [
+    {
+      "signature": {
+        "name": "Run",
+        "parameters": [],
+        "shortStr": "Run()",
+        "str": "void Run()"
+      },
+      "description": "Enter GUI message loop.",
+      "id": "run"
+    },
+    {
+      "signature": {
+        "name": "Quit",
+        "parameters": [],
+        "shortStr": "Quit()",
+        "str": "void Quit()"
+      },
+      "description": "Quit current message loop.",
+      "id": "quit"
+    },
+    {
+      "signature": {
+        "name": "PostTask",
+        "parameters": [
+          {
+            "type": {
+              "name": "std::function<void()>"
+            },
+            "name": "task"
+          }
+        ],
+        "shortStr": "PostTask(task)",
+        "str": "void PostTask(std::function<void()> task)"
+      },
+      "description": "Post a `task` to main thread's message loop.",
+      "id": "posttask-task"
+    },
+    {
+      "signature": {
+        "name": "PostDelayedTask",
+        "parameters": [
+          {
+            "type": {
+              "name": "int"
+            },
+            "name": "ms",
+            "description": "The number of milliseconds to wait"
+          },
+          {
+            "type": {
+              "name": "std::function<void()>"
+            },
+            "name": "task"
+          }
+        ],
+        "shortStr": "PostDelayedTask(ms, task)",
+        "str": "void PostDelayedTask(int ms, std::function<void()> task)"
+      },
+      "description": "Post a `task` to main thread's message loop and execute it after `ms`.\n",
+      "id": "postdelayedtask-ms-task"
+    },
+    {
+      "signature": {
+        "name": "SetTimer",
+        "parameters": [
+          {
+            "type": {
+              "name": "int"
+            },
+            "name": "ms",
+            "description": "The number of milliseconds to wait"
+          },
+          {
+            "type": {
+              "name": "std::function<bool()>"
+            },
+            "name": "task"
+          }
+        ],
+        "shortStr": "SetTimer(ms, task)",
+        "str": "void SetTimer(int ms, std::function<bool()> task)"
+      },
+      "description": "Enqueue a task `task` to be run multiple times on the main thread's\nmessage loop, delaying every `ms` miliseconds, and stopping if the task\nreturns `false`.\n",
+      "id": "settimer-ms-task"
+    }
+  ],
+  "id": "message_loop"
+}

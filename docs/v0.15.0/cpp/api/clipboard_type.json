@@ -1,0 +1,29 @@
+{
+  "name": "Clipboard::Type",
+  "header": "nativeui/clipboard.h",
+  "type": "enum class",
+  "namespace": "nu",
+  "description": "Type of `Clipboard`.",
+  "enums": [
+    {
+      "name": "Clipboard::Type::CopyPaste"
+    },
+    {
+      "name": "Clipboard::Type::Drag",
+      "description": "Only available on macOS."
+    },
+    {
+      "name": "Clipboard::Type::Find",
+      "description": "Only available on macOS."
+    },
+    {
+      "name": "Clipboard::Type::Font",
+      "description": "Only available on macOS."
+    },
+    {
+      "name": "Clipboard::Type::Selection",
+      "description": "Only available on Linux."
+    }
+  ],
+  "id": "clipboard_type"
+}

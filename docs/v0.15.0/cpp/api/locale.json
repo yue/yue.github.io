@@ -1,0 +1,38 @@
+{
+  "name": "Locale",
+  "component": "gui",
+  "header": "nativeui/locale.h",
+  "type": "class",
+  "namespace": "nu",
+  "description": "Information about localization.",
+  "class_methods": [
+    {
+      "signature": {
+        "returnType": {
+          "name": "std::string"
+        },
+        "name": "GetCurrentIdentifier",
+        "parameters": [],
+        "shortStr": "GetCurrentIdentifier()",
+        "str": "std::string GetCurrentIdentifier()"
+      },
+      "description": "Return current locale identifier string.",
+      "id": "getcurrentidentifier"
+    },
+    {
+      "signature": {
+        "returnType": {
+          "name": "std::vector<std::string>"
+        },
+        "name": "GetPreferredLanguages",
+        "parameters": [],
+        "shortStr": "GetPreferredLanguages()",
+        "str": "std::vector<std::string> GetPreferredLanguages()"
+      },
+      "description": "Return an ordered list of user's preferred languages.",
+      "detail": "Users choose a primary language when configuring a device, they may also\nspecify one or more secondary languages in order of preference for use\nwhen localization is unavailable in a higher priority language.\n\nUse this API to obtain the current user's ordered list of languages,\npresented as an array of locale identifier strings.\n",
+      "id": "getpreferredlanguages"
+    }
+  ],
+  "id": "locale"
+}
